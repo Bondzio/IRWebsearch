@@ -2,25 +2,24 @@
  * 
  */
 
-searchbox = $("#quicksearch-input");
-
-searchbox.on("click", onSearchboxClick);
-searchbox.on("input", onSearchboxInput);
-
-searchbox.autocomplete("enable");
+$searchbox = $("#quicksearch-input");
+$searchbox.autocomplete();  
+$searchbox.autocomplete("enable");  
+$searchbox.on("click", onSearchboxClick);
+$searchbox.on("input", onSearchboxInput);
 
 /*
  * Shows 
  */
 function onSearchboxClick() {
-	var url = "WebAppTest";
+	var url = "../../IRWebsearch/WebAppTest";
 
     $.ajax({
         url: url,
         type: "GET",
         contentType: "text/javascript",
         dataType: "json",
-        success: callback
+        success: callback,
     });
     
     
@@ -29,14 +28,14 @@ function onSearchboxClick() {
 function callback(data) {
 	console.log(data.suggestions);
 	if(data.suggestions.length > 6) data.suggestions.length = 6;	
-	searchbox.autocomplete({source: data.suggestions});
+	$searchbox.autocomplete({source: data.suggestions});
 }
 
 /*
  *
  */
 function onSearchboxInput(event) {
-	var url = "WebAppTest";
+	var url = "../../IRWebsearch/WebAppTest";
 
     $.ajax({
         url: url,

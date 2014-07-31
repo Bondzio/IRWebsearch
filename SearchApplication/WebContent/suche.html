@@ -1,10 +1,155 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<head lang="de">
+  <title>Uni-Suche</title>
+  <meta http-equiv="content-type" content="text/html"/>
+  <meta charset="ISO-8859-1">
+  <script type="text/javascript" src="../jquery.js"></script>
+  <script src="../res/jquery-ui.js"></script>
+  
+	<link rel="stylesheet" href="http://www.uni-regensburg.de/res/css/bootstrap.min.css" type="text/css" />
+	<link rel="stylesheet" href="../res/jquery-ui.css" type="text/css" />
+	<link rel="stylesheet" href="../res/jquery-ui.structure.css" type="text/css" />
+	<link rel="stylesheet" href="../res/jquery-ui.theme.css" type="text/css" />
+	<link rel="stylesheet" href="../res/suchseite.css" type="text/css" />
 
-</body>
+	<link rel="stylesheet" href="http://www.uni-regensburg.de/res/css/style.css" type="text/css" />
+	
+</head>
+  <body>
+   <!-- <div id="admin"><a href="#url_root/#/#core_name">Solr Admin</a></div> -->
+    <div id="header">
+		<div id="head">
+		<!--  <span ><a href="#url_for_home#if($request.params.get('debugQuery'))?debugQuery=true#end"><img src="#{url_root}/img/solr.png" id="logo"/></a></span> -->
+		<img src="http://www.uni-regensburg.de/res/pics/logo_zwischenseite.gif" alt="Logo der Universität"/>
+		  <div id="quicklinks">
+		  	<ul>
+		  		<li><a href="http://www.elearning.uni-regensburg.de">GRIPS</a></li>
+		  		<li><a href="http://www.elearning.uni-regensburg.de">NETSTORAGE</a></li>
+		  		<li><a href="http://www.elearning.uni-regensburg.de">RECHENZENTRUM</a></li>
+		  		<li><a href="http://www.elearning.uni-regensburg.de">BIBLIOTHEK</a><br /></li>
+		  		<li><a href="http://www.elearning.uni-regensburg.de">LSF</a></li>
+		  		<li><a href="http://www.elearning.uni-regensburg.de">STUDENTENWERK</a></li>
+		  		<li><a href="http://www.elearning.uni-regensburg.de">WEBMAIL</a></li>
+		  		<li><a href="http://www.elearning.uni-regensburg.de">STUDIUM</a></li>
+		  	</ul>
+		  </div> <!-- /quicklinks -->
+		</div><!-- /head -->
+    </div>
+    <div id="content">
+    
+    	<div id="search">
+    		<form id="quicksearch-form" method="get" action="suche">
+				<div class="input-container">
+					<input name="q" id="quicksearch-input" type="text" maxlength="50" title="Suchbegriff" tabindex="37" />
+				</div>
+				<div class="submit-container">
+					<input type="submit" class="quicksearch-submit" title="suchen" value="suchen" />
+				</div>
+			</form>
+    	</div>
+    
+    
+    	<div id="results">
+    	<!-- BREAKPOINT: RESULTS -->
+    	
+    	</div>
+
+		<div id="suggestions">
+			<h3>Das k&ouml;nnte Sie auch interessieren:</h3>
+			<ul>
+				<li>Das sind nur Beispiele</li>
+				<li>Wir sollten das noch implementieren</li>
+			</ul>
+		
+		</div>
+    </div>
+    <div id="footer">
+		<div>
+		<div>
+			<a id="skipnav" href="#content-start">Zu Hauptinhalt springen</a>
+			</div>
+		
+			<div class="navigation">
+				<div id="navigation-header">
+					<a href="#">Navigation</a>
+				</div>
+				<div id="navigation-content">
+					<div class="dots-horizontal"></div>
+						
+						<div class="column-1 deeplinks" aria-role="navigation">
+							<ul>
+								<li><a href="http://www.uni-regensburg.de/forschung/index.html">Forschung</a></li>
+								<li><a href="http://www.uni-regensburg.de/studium/index.html">Studium</a></li>
+								<li><a href="http://www.uni-regensburg.de/wirtschaftskontakte/index.html">Netzwerke</a></li>
+							</ul>
+							<ul>
+								<li><a href="http://www.uni-regensburg.de/international/index.html">International</a></li>
+								<li><a href="http://www.uni-regensburg.de/chancengleichheit/index.html">Chancengleichheit</a></li>
+								<li><a href="http://www.uni-regensburg.de/studium/bewerbung-einschreibung/index.html">Studieninteressierte</a></li>
+							</ul>
+							<ul>
+								<li><a href="http://www.uni-regensburg.de/bibliothek/index.html">Bibliothek</a></li>
+								<li><a href="http://www.uni-regensburg.de/rechenzentrum/index.html">Rechenzentrum</a></li>
+								<li><a href="http://www.uni-regensburg.de/verwaltung/index.html">Verwaltung</a></li>
+							</ul>
+							<ul class="last-child">
+								<li><a href="https://elearning.uni-regensburg.de/">E-Learning</a></li>
+								<li><a href="https://lsf.uni-regensburg.de/qisserver/rds?state=user&amp;type=0&amp;idcol=k_semester&amp;idval=20142&amp;getglobal=semester">Vorlesungen</a></li>
+								<li><a href="https://gw.uni-regensburg.de/gw/webacc">Webmail</a></li>
+							</ul>
+						</div>
+		
+		
+				<div class="column-2" aria-role="navigation">
+		
+		
+						<a href="http://www.uni-regensburg.de/aktuelles/index.html">Aktuelles</a>
+		
+						<a href="http://www.uni-regensburg.de/bayhost">BAYHOST</a>
+		
+						<a href="http://www.uni-regensburg.de/einrichtungen">Einrichtungen</a>
+		
+						<a href="http://www.uni-regensburg.de/europaeum">Europaeum</a>
+		
+						<a href="http://www.uni-regensburg.de/fakultaeten/">Fakult&auml;ten</a>
+		
+						<a href="https://www-flexnow.uni-regensburg.de/Flexnow/diensteframes.htm">Flexnow</a>
+		
+						<a href="http://www.uniklinikum-regensburg.de">Klinikum</a>
+		
+						<a href="http://www.uni-regensburg.de/kultur-freizeit/index.html">Kultur &amp; Freizeit</a>
+		
+						<a href="http://www.uni-regensburg.de/mensa/index.html">Mensa</a>
+		
+						<a href="http://www.uni-regensburg.de/universitaet/personalrat/index.html">Personalrat</a>
+		
+						<a href="http://www.uni-regensburg.de/qualitaetsmanagement/index.html">Qualit&auml;tsmanagement</a>
+		
+						<a href="http://www.uni-regensburg.de/cgi-bin/site_active.pl?TEMPLATE=/rul/calendar.htms">RUL</a>
+		
+						<a href="http://www.uni-regensburg.de/sport/index.html">Sport</a>
+		
+						<a href="http://www.uni-regensburg.de/studierende-aktiv/index.html">Studentische Initiativen</a>
+		
+						<a href="http://www.uni-regensburg.de/technische-zentrale/index.html">Technische Zentrale</a>
+		
+						<a href="http://www.campusstore-regensburg.de/">Uni-Shop</a>
+		
+						<a href="http://www.uni-regensburg.de/zentrum-hochschul-wissenschaftsdidaktik/index.html">ZHW</a>
+		
+						<a href="http://www.uni-regensburg.de/zentrum-sprache-kommunikation/leitung/index.html">ZSK</a>
+		
+		
+				</div>
+		
+		
+				</div>
+			</div>
+		</div>
+    </div>
+    
+		<script type="text/javascript" src="../res/resultspagesuggestions.js"></script>
+		<script type="text/javascript" src="../res/searchscript.js"></script>
+  </body>
 </html>

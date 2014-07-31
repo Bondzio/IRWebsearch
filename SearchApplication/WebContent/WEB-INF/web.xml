@@ -19,4 +19,14 @@
   	<servlet-name>WebAppTest</servlet-name>
   	<url-pattern>/WebAppTest</url-pattern>
   </servlet-mapping>
+  <servlet>
+  	<description>AJAX test</description>
+  	<display-name>WebAppTest</display-name>
+  	<servlet-name>WebAppTestResults</servlet-name>
+  	<servlet-class>test.AjaxServerTest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>WebAppTestResults</servlet-name>
+  	<url-pattern>/WebAppTest/suche</url-pattern>
+  </servlet-mapping>
 </web-app>
