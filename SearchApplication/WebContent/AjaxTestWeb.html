@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		enter name:<input type="text" id="inputdisplay" size="25" />
+		<button type="button" onclick="sendMessageToServer()">Send to Server</button> <br>
+ reply received from server:<input type="text" id="textdisplay" size="30"/>
+ <script src="jquery.js"></script>
+ <script> 	
+ 	function sendMessageToServer() {		
+ 	 	var url = "WebAppTest";
+
+	    $.ajax({
+	        url: url,
+	        type: "GET",
+	        contentType: "text/javascript",
+	        dataType: "json",
+	        success: callback
+	    });
+ 	}
+ 		    
+	 function callback(data) {
+	 	alert(data.value);
+	 }
+ 
+ </script>
+ 
+ </body>
+</html>

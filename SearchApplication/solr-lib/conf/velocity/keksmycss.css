@@ -1,0 +1,115 @@
+#quicklinks {
+  position: absolute;
+  top: 0;
+  margin-left: 210px;
+  background-color: #8e8e8d;
+  padding: 5px;
+  padding-top: 20px;
+  height: 85px;
+  width: 436px;
+}
+
+#quicklinks ul {
+  width: 400px;
+  height: 40px;
+}
+
+#quicklinks ul li{
+  list-style-type: none;
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 5px;
+}
+
+#quicklinks ul li a {
+  color: white;
+  font-size: 13px;
+}
+
+.results {
+  width: 60%;
+}
+
+.result-title {
+  width: 100%;
+}
+
+.urlfield {
+  color: #339933;
+  font-size: 13px;
+  width: 100%;
+
+  margin-top: -6px;
+}
+
+.result-title {
+
+  height: 15px;
+  overflow: hidden;
+}
+
+.result-title a {
+  font-size: 18px!important;
+  color: black;
+  text-decoration: none;
+  line-height: 18px;
+
+}
+
+.result-title a:hover {
+  text-decoration: underline;
+}
+
+.result-document {
+  background-color: none;
+  border: none;
+  margin-top: -12px;
+}
+
+.result-document:first-child {
+  margin-top: 0px;
+}
+
+
+.result-body {
+  line-height: 16px;
+  font-size: 13px;
+  height: 28px;
+  overflow: hidden;
+  margin-top: -6px;
+}
+
+.query-box, .constraints {
+  font-size: 16px;
+  width: 100%;
+  margin-left: 18px;
+  margin-bottom: 20px;
+}
+
+#q {
+  margin-top: 25px;
+  font-size: 18px;
+}
+
+.inputs {
+  height: 10px;
+}
+
+.query-box #q {
+  height: 25px;
+  padding: 1px 1px 1px 5px;
+  font-size: 15px;
+}
+
+#search_submit_button input {
+  width: 40px;
+  margin-top: -25px;
+  line-height: 19px;
+  margin-left: 430px;
+}
+
+#search_submit_button {
+  display: none;
+  width: 25px;
+  height: 24px;
+}
