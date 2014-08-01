@@ -49,13 +49,14 @@ public class AjaxServerTest extends HttpServlet{
 	}
 	
 	private String getResults(String query) {
-		String resultString = "<ul>";
+		String resultString = "<ul class='result-list'>";
         SolrJConnection connect = new SolrJConnection();
         		
 		String[][] queryResults = connect.getResultsForQuery(query);
 		for(int i = 0; i < queryResults.length; i++) {
-			resultString += "<li><h3>" + queryResults[i][0] + "</h3><p>" + queryResults[i][1] +
-							"</p><p>" + queryResults[i][2] + "</p></li>";
+			resultString += "<li><h3 class='result-title'><a href='" + queryResults[i][3] +  "'>" + queryResults[i][0] +
+					"</a></h3><p class='result-url'>" + queryResults[i][1] + 
+					"</p><p class='result-snippet'>" + queryResults[i][2] + "</p></li>";
 		}		
 		resultString += "</ul>";
 		

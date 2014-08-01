@@ -1,6 +1,7 @@
 package solr;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrServer;
@@ -64,18 +65,54 @@ public class SolrJConnection {
 			QueryResponse response = server.query(params);
 			SolrDocumentList queryResults = response.getResults();
 			 
-			results = new String[queryResults.size()][3];
+			results = new String[queryResults.size()][4];
+			
+
+			Map<String, Map<String, List<String>>> highlights = response.getHighlighting();
 			
 			for(int i = 0; i < queryResults.size(); i++) {
 				SolrDocument result = queryResults.get(i);
-				results[i][0] = (String) result.getFieldValue("title");
-				results[i][1] = (String) result.getFieldValue("url");
-				results[i][2] = (String) result.getFieldValue("content");
+				
+				if(highlights.get(result.getFieldValue("id")).containsKey(("title"))) {
+					results[i][0] = highlights.get(result.getFieldValue("id")).get("title").get(0);
+				} else {
+					results[i][0] = (String) result.getFieldValue("title");
+				}
+				
+				if(highlights.get(result.getFieldValue("id")).containsKey(("url"))) {
+					results[i][1] = highlights.get(result.getFieldValue("id")).get("url").get(0);
+				} else {
+					results[i][1] = (String) result.getFieldValue("url");
+				}
+				
+				if(highlights.get(result.getFieldValue("id")).containsKey(("content"))) {
+					results[i][2] = highlights.get(result.getFieldValue("id")).get("content").get(0);
+				} else {
+					results[i][2] = (String) result.getFieldValue("content"); 
+				}
+				
+				results[i][3] = (String) result.getFieldValue("url");
+				
+				if(results[i][0] != null && results[i][0].endsWith(" - Universität Regensburg")) {
+					results[i][0] = results[i][0].substring(0, results[i][0].length() - " - Universität Regensburg".length());
+				}
+				
+				// cut http:// or https:// from displayed url:
+				results[i][1] = results[i][1].replace("&#x2F;", "/");
+				results[i][1] = results[i][1].replace("https://", "");
+				results[i][1] = results[i][1].replace("http://", "");
+				System.out.println(results[i][1]);
 			}
+			
+			
+			
+			
+			
 			 
 		} catch (SolrServerException e) {
 			e.printStackTrace();
 		}
+		
 		
 		
 		return results;
