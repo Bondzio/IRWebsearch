@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.Charset;
 
 import org.apache.commons.cli.Options;
 import org.apache.hadoop.conf.Configuration;
@@ -36,7 +37,7 @@ public class MainClass {
 	
 	public static void main(String[] args) throws IOException {
 		//for(int i = 0; i < segments.length; i++) {
-		for(int i = 0; i < 1; i++) {	
+		for(int i = 4; i < segments.length; i++) {	
 			oldMain(segments[i]);
 		}
 		
@@ -63,11 +64,11 @@ public class MainClass {
         
         MainClass bla = new MainClass();
         
-        String output = "";
         
         boolean started = false;
         
         while (reader.next(key, content)) {
+        
         	if(index == 0) {
         		if(started) {
         			w.write("\n</add>");
@@ -76,13 +77,14 @@ public class MainClass {
 	            folder = new File("C:/Users/Jonathan/Desktop/IRIndexXMLs");
 	            newFile = new File("C:/Users/Jonathan/Desktop/IRIndexXMLs/index"+folder.listFiles().length+".xml");
 	            w = new FileWriter(newFile);
-	            w.write("<add>\n");
+	            w.write("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n<add>\n");
 	            started=true;
 	            
 	        }
         	index++;
         	if(index == 100) index = 0;
             try {
+            	// TODO save URLs, check if already indexed, check if already indexed for index.html
             	Document doc = Jsoup.parse(new String(content.getContent(), "utf-8"));
             //   Document doc = Jsoup.parse(new URL("http://www.ur.de/index.html"), 1000);
             	String s = bla.parseDocument(doc, content.getBaseUrl());
@@ -96,16 +98,35 @@ public class MainClass {
 
 		w.write("\n</add>");
 		w.close();
+		reader.close();
 	}
 	
+	// TODO PDFs are still excluded!!
 	private String parseDocument(Document doc, String url) {
-		if(!url.endsWith("/") && !url.endsWith("html") && !url.endsWith("htm") && !url.endsWith("php") && !url.endsWith("jsp") && !url.endsWith(".de") && !url.endsWith(".pdf")) return "";
+		if(!url.endsWith("/") && !url.endsWith("html") && !url.endsWith("htm") && !url.endsWith("php") && !url.endsWith("jsp") && !url.endsWith(".de")) return ""; //&& !url.endsWith(".pdf")) return "";
 		int cms = findOutWhichCMS(doc, url);
 		String title = doc.select("title").text();
 		
-		doc = Jsoup.parse(removeUnnecessaryParts(doc, cms));
+		try {
+			doc = Jsoup.parse(removeUnnecessaryParts(doc, cms));
+		} catch (OutOfMemoryError e) {
+			return "";
+		}
+		String contents = doc.text();
+		if(contents.contains("301 Moved Permanently") || contents.contains("302 Found 302")) return "";
 		
-		return this.saveToDoc(title, url, doc.text())+"\n";
+		contents = contents.replaceAll("<", "&lt;");
+		contents = contents.replaceAll(">", "&gt;");
+		contents = contents.replaceAll("&", "&amp;");
+		
+		title = title.replaceAll("&", "&amp;");
+		title = title.replaceAll("<", "&lt;");
+		title = title.replaceAll(">", "&gt;");
+		// remove control characters: 
+		contents = contents.replaceAll("[\u0000-\u001f]", "");
+		
+		
+		return this.saveToDoc(title, url, contents)+"\n";
 	}
 	
 	private int findOutWhichCMS(Document doc, String url) {
@@ -132,7 +153,7 @@ public class MainClass {
 		return NONE;
 	}
 	
-	private String removeUnnecessaryParts(Document doc, int cms) {	
+	private String removeUnnecessaryParts(Document doc, int cms) throws OutOfMemoryError{	
 		String htmlString = "";
 				
 		if(cms == UNI_DEFAULT) {
@@ -140,9 +161,53 @@ public class MainClass {
 
 			doc.select("div.navigation").remove();
 			doc.select("div.header").remove();
+			doc.select("a#skipnav").remove();
 			
 			htmlString += doc.html();
-		} else {
+			
+		} else if(cms == UNI_BIOLOGY) {
+			// Fun fact: biologie benutzt <br> und <table>s für die Optik.
+			htmlString += doc.getElementsByTag("head").html();
+			doc.select("div.navigation").remove();
+			htmlString += doc.html();
+			
+		} else if(cms == UNI_ETHIKKOM) {
+			htmlString += doc.getElementsByTag("head").html();
+			doc.select("div.header").remove();
+			htmlString += doc.html();
+			
+		} else if (cms == UNI_WIWI) {
+			htmlString += doc.getElementsByTag("head").html();
+			doc.select("div#header").remove();
+			doc.select("div.topnavi").remove();
+			htmlString += doc.html();
+			
+		} else if (cms == UNI_NAT_FAK_I) {
+			// Fun fact: ein großer Table ;)
+			htmlString += doc.getElementsByTag("head").html();
+			doc.select("ul#MenuBar1").remove();
+			htmlString += doc.html();
+			
+		} else if (cms == UNI_OC_CHEMIE) {
+
+			htmlString += doc.getElementsByTag("head").html();
+
+			doc.select("div.navigation").remove();
+			doc.select("div.header").remove();
+			doc.select("a#skipnav").remove();
+			
+			htmlString += doc.html();
+			
+		} else if (cms == UNI_PHYSICS) {
+			htmlString += doc.getElementsByTag("head").html();
+			doc.select("#phyHead").remove();
+			doc.select("#phyMenuMainTabs").remove();
+			htmlString += doc.html();
+		} else if (cms == PDF) {
+			return doc.toString();
+		}
+		
+		else {
 			htmlString += doc.html();
 		}
 		

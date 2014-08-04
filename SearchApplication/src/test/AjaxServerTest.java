@@ -53,7 +53,18 @@ public class AjaxServerTest extends HttpServlet{
         SolrJConnection connect = new SolrJConnection();
         		
 		String[][] queryResults = connect.getResultsForQuery(query);
+		
+		
 		for(int i = 0; i < queryResults.length; i++) {
+			// so url doesn't need 2 lines
+			queryResults[i][1] = queryResults[i][1].replaceAll("<strong>", "");
+			queryResults[i][1] = queryResults[i][1].replaceAll("</strong>", "");
+			if(queryResults[i][1].length() > 95){
+			
+				queryResults[i][1] = queryResults[i][1].substring(0, 90) + "...";
+				System.out.println(queryResults[i][1]);
+			}
+			
 			resultString += "<li><h3 class='result-title'><a href='" + queryResults[i][3] +  "'>" + queryResults[i][0] +
 					"</a></h3><p class='result-url'>" + queryResults[i][1] + 
 					"</p><p class='result-snippet'>" + queryResults[i][2] + "</p></li>";

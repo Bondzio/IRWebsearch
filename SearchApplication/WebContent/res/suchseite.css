@@ -123,6 +123,7 @@ h3.result-title {
 .result-snippet {
   line-height: 16px;
   font-size: 13px;
-  height: 28px;
+  height: 33px;
   margin-top: -6px;
+  overflow: hidden;
 }

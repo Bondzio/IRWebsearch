@@ -79,11 +79,11 @@ public class SolrJConnection {
 					results[i][0] = (String) result.getFieldValue("title");
 				}
 				
-				if(highlights.get(result.getFieldValue("id")).containsKey(("url"))) {
-					results[i][1] = highlights.get(result.getFieldValue("id")).get("url").get(0);
-				} else {
+			//	if(highlights.get(result.getFieldValue("id")).containsKey(("url"))) {
+			//		results[i][1] = highlights.get(result.getFieldValue("id")).get("url").get(0);
+			//	} else {
 					results[i][1] = (String) result.getFieldValue("url");
-				}
+			//	}
 				
 				if(highlights.get(result.getFieldValue("id")).containsKey(("content"))) {
 					results[i][2] = highlights.get(result.getFieldValue("id")).get("content").get(0);
@@ -101,7 +101,6 @@ public class SolrJConnection {
 				results[i][1] = results[i][1].replace("&#x2F;", "/");
 				results[i][1] = results[i][1].replace("https://", "");
 				results[i][1] = results[i][1].replace("http://", "");
-				System.out.println(results[i][1]);
 			}
 			
 			
