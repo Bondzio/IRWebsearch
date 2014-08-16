@@ -11,50 +11,122 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import solr.SolrJConnection;
+import solr.SolrJConnection.ResultsObject;
 
 
 public class AjaxServerTest extends HttpServlet{
 	private static final long serialVersionUID = 1L;
+	
+	private SolrJConnection connect;
 	
 	public AjaxServerTest() {
 		super();
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(request.getRequestURI());
-		
+		connect = new SolrJConnection();
+        
 		if(request.getRequestURI().equals("/IRWebsearch/WebAppTest/suche")) {
 			showResults(request, response);
 		} else if(request.getRequestURI().equals("/IRWebsearch/WebAppTest")){
 			doAutocomplete(request, response);
 		}
 	}
-	
+	// Breakpoints: FILTERS    RESULTS    OTHER TOPICS    PAGES
 	private void showResults(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String relativeWebPath = "/suche.html";
 		String absoluteDiskPath = getServletContext().getRealPath(relativeWebPath);
 		
 		String htmlPage = readFile(absoluteDiskPath, Charset.forName("utf-8"));
-		
-		int index = htmlPage.indexOf("<!-- BREAKPOINT: RESULTS -->");
-		
-		String firstPart = htmlPage.substring(0, index);
-		String secondPart = htmlPage.substring(index, htmlPage.length());
-		
 		PrintWriter out = response.getWriter();
 		
-		out.write(firstPart);
-		out.write(getResults(request.getParameter("q")));
-		out.write(secondPart);
+		String page = request.getParameter("page");
+		String query = request.getParameter("q");
+		
+		ResultsObject obj;
+		
+		if(page != null) {
+			obj = connect.getResultsForQuery(query, Integer.parseInt(page));
+		} else {
+			obj = connect.getResultsForQuery(query);	
+		}
+		
+		// Write Everything up to (including) filters
+		int index = htmlPage.indexOf("<!-- BREAKPOINT: FILTERS -->");
+		int nextIndex = htmlPage.indexOf("<!-- BREAKPOINT: RESULTS -->");
+		out.write(htmlPage.substring(0, index));
+		out.write(writeFilters(obj.filters));
+		
+		// Write Everything up to (including) results
+		out.write(htmlPage.substring(index, nextIndex));
+		out.write(writeResults(obj.actualResults));
+		index = nextIndex;
+		nextIndex = htmlPage.indexOf("<!-- BREAKPOINT: OTHER TOPICS -->");
+
+		// Write Everything up to (including) related queries
+		out.write(htmlPage.substring(index, nextIndex));
+		out.write(writeRelatedQueries(obj.relatedQueries));
+		index = nextIndex;
+		nextIndex = htmlPage.indexOf("<!-- BREAKPOINT: PAGES -->");
+		
+		// Write Pages
+		out.write(htmlPage.substring(index, nextIndex));
+		if(page != null) {
+			out.write(writePages(obj.numResults, query, Integer.parseInt(page)));
+		} else {
+			out.write(writePages(obj.numResults, query, 1));
+		}
+		out.write(htmlPage.substring(nextIndex, htmlPage.length()-1));
+		
 	}
 	
-	private String getResults(String query) {
+	private String writeFilters(String[] filters) {
+		return "";
+	}
+	
+	private String writeResults(String[][] results) {
+		return getFormattedResults(results);
+	}
+	
+	private String writeRelatedQueries(String[] relatedQueries) {
+		return "";
+	}
+	
+	private String writePages(int numResults, String query, int active) {
+		String pagination = "";
+
+		int startNumber;
+		
+		if(active <= 6) startNumber = 1;
+		else startNumber = active - 5;
+		
+		int pageNumbersShown = numResults/10;
+		if(pageNumbersShown > 10) pageNumbersShown = startNumber + 9;
+		if(pageNumbersShown > numResults/10) pageNumbersShown = numResults/10 + 1;
+		
+		if(active != 1) {
+			pagination += "<a class='active' href='suche?q=" + query + "&page=" + (active-1) + "'>&lt;</a>";	
+		}
+		
+		for(int i = startNumber; i <= pageNumbersShown; i++) {
+			if(i == active) {
+				pagination += "<a class='active' href='suche?q=" + query + "&page=" + i + "'>" + i + "</a>";				 
+			} else {
+				pagination += "<a href='suche?q=" + query + "&page=" + i + "'>" + i + "</a>";
+			}
+		}
+		
+		
+		if(active != numResults/10 + 1) {
+			pagination += "<a class='active' href='suche?q=" + query + "&page=" + (active+1) + "'>&gt;</a>";	
+		}
+		
+		return pagination;
+	}
+	
+	private String getFormattedResults(String[][] queryResults) {
 		String resultString = "<ul class='result-list'>";
-        SolrJConnection connect = new SolrJConnection();
-        		
-		String[][] queryResults = connect.getResultsForQuery(query);
-		
-		
+        			
 		for(int i = 0; i < queryResults.length; i++) {
 			// so url doesn't need 2 lines
 			queryResults[i][1] = queryResults[i][1].replaceAll("<strong>", "");
@@ -62,7 +134,6 @@ public class AjaxServerTest extends HttpServlet{
 			if(queryResults[i][1].length() > 95){
 			
 				queryResults[i][1] = queryResults[i][1].substring(0, 90) + "...";
-				System.out.println(queryResults[i][1]);
 			}
 			
 			resultString += "<li><h3 class='result-title'><a href='" + queryResults[i][3] +  "'>" + queryResults[i][0] +
@@ -85,7 +156,7 @@ public class AjaxServerTest extends HttpServlet{
         String query = request.getParameter("query");
         
         SolrJConnection connect = new SolrJConnection();
-		String[] suggestions = connect.doStuff(query);
+		String[] suggestions = connect.getSuggestions(query);
 		
 		String resultString = "[";
 		for(int i = 0; i < suggestions.length; i++) {

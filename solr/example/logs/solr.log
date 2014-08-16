@@ -595,3 +595,321 @@ ERROR - 2014-08-09 16:04:17.938; org.apache.solr.common.SolrException; org.apach
 INFO  - 2014-08-09 16:10:55.396; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
 INFO  - 2014-08-09 16:11:03.368; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&wt=javabin&version=2} hits=125 status=0 QTime=328 
 INFO  - 2014-08-09 16:11:05.365; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-16 22:38:53.122; org.eclipse.jetty.server.Server; jetty-8.1.10.v20130312
+INFO  - 2014-08-16 22:38:53.147; org.eclipse.jetty.deploy.providers.ScanningAppProvider; Deployment monitor C:\Users\Jonathan\Documents\IRWeabsearch\solr\example\contexts at interval 0
+INFO  - 2014-08-16 22:38:53.157; org.eclipse.jetty.deploy.DeploymentManager; Deployable added: C:\Users\Jonathan\Documents\IRWeabsearch\solr\example\contexts\solr-jetty-context.xml
+INFO  - 2014-08-16 22:38:55.066; org.eclipse.jetty.webapp.StandardDescriptorProcessor; NO JSP Support for /solr, did not find org.apache.jasper.servlet.JspServlet
+INFO  - 2014-08-16 22:38:55.141; org.apache.solr.servlet.SolrDispatchFilter; SolrDispatchFilter.init()
+INFO  - 2014-08-16 22:38:55.158; org.apache.solr.core.SolrResourceLoader; JNDI not configured for solr (NoInitialContextEx)
+INFO  - 2014-08-16 22:38:55.159; org.apache.solr.core.SolrResourceLoader; solr home defaulted to 'solr/' (could not find system property or JNDI)
+INFO  - 2014-08-16 22:38:55.160; org.apache.solr.core.SolrResourceLoader; new SolrResourceLoader for directory: 'solr/'
+INFO  - 2014-08-16 22:38:55.295; org.apache.solr.core.ConfigSolr; Loading container configuration from C:\users\jonathan\documents\irweabsearch\solr\example\solr\solr.xml
+INFO  - 2014-08-16 22:38:55.411; org.apache.solr.core.CorePropertiesLocator; Config-defined core root directory: C:\users\jonathan\documents\irweabsearch\solr\example\solr
+INFO  - 2014-08-16 22:38:55.419; org.apache.solr.core.CoreContainer; New CoreContainer 71706941
+INFO  - 2014-08-16 22:38:55.421; org.apache.solr.core.CoreContainer; Loading cores into CoreContainer [instanceDir=solr/]
+INFO  - 2014-08-16 22:38:55.435; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting socketTimeout to: 0
+INFO  - 2014-08-16 22:38:55.436; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting urlScheme to: null
+INFO  - 2014-08-16 22:38:55.440; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting connTimeout to: 0
+INFO  - 2014-08-16 22:38:55.441; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting maxConnectionsPerHost to: 20
+INFO  - 2014-08-16 22:38:55.443; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting corePoolSize to: 0
+INFO  - 2014-08-16 22:38:55.443; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting maximumPoolSize to: 2147483647
+INFO  - 2014-08-16 22:38:55.444; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting maxThreadIdleTime to: 5
+INFO  - 2014-08-16 22:38:55.444; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting sizeOfQueue to: -1
+INFO  - 2014-08-16 22:38:55.444; org.apache.solr.handler.component.HttpShardHandlerFactory; Setting fairnessPolicy to: false
+INFO  - 2014-08-16 22:38:55.701; org.apache.solr.logging.LogWatcher; SLF4J impl is org.slf4j.impl.Log4jLoggerFactory
+INFO  - 2014-08-16 22:38:55.702; org.apache.solr.logging.LogWatcher; Registering Log Listener [Log4j (org.slf4j.impl.Log4jLoggerFactory)]
+INFO  - 2014-08-16 22:38:55.703; org.apache.solr.core.CoreContainer; Host Name: 
+INFO  - 2014-08-16 22:38:55.772; org.apache.solr.core.CorePropertiesLocator; Looking for core definitions underneath C:\users\jonathan\documents\irweabsearch\solr\example\solr
+INFO  - 2014-08-16 22:38:55.807; org.apache.solr.core.CorePropertiesLocator; Found core collection1 in C:\users\jonathan\documents\irweabsearch\solr\example\solr\collection1\
+INFO  - 2014-08-16 22:38:55.812; org.apache.solr.core.CorePropertiesLocator; Found 1 core definitions
+INFO  - 2014-08-16 22:38:55.827; org.apache.solr.core.SolrResourceLoader; new SolrResourceLoader for directory: 'C:\users\jonathan\documents\irweabsearch\solr\example\solr\collection1\'
+INFO  - 2014-08-16 22:38:55.960; org.apache.solr.core.SolrConfig; Adding specified lib dirs to ClassLoader
+INFO  - 2014-08-16 22:38:55.965; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/apache-mime4j-core-0.7.2.jar' to classloader
+INFO  - 2014-08-16 22:38:55.966; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/apache-mime4j-dom-0.7.2.jar' to classloader
+INFO  - 2014-08-16 22:38:55.967; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/asm-3.1.jar' to classloader
+INFO  - 2014-08-16 22:38:55.968; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/aspectjrt-1.6.11.jar' to classloader
+INFO  - 2014-08-16 22:38:55.968; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/bcmail-jdk15-1.45.jar' to classloader
+INFO  - 2014-08-16 22:38:55.969; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/bcprov-jdk15-1.45.jar' to classloader
+INFO  - 2014-08-16 22:38:55.970; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/boilerpipe-1.1.0.jar' to classloader
+INFO  - 2014-08-16 22:38:55.970; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/commons-compress-1.7.jar' to classloader
+INFO  - 2014-08-16 22:38:55.972; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/dom4j-1.6.1.jar' to classloader
+INFO  - 2014-08-16 22:38:55.972; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/fontbox-1.8.4.jar' to classloader
+INFO  - 2014-08-16 22:38:55.973; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/icu4j-52.1.jar' to classloader
+INFO  - 2014-08-16 22:38:55.974; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/isoparser-1.0-RC-1.jar' to classloader
+INFO  - 2014-08-16 22:38:55.974; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/jdom-1.0.jar' to classloader
+INFO  - 2014-08-16 22:38:55.975; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/jempbox-1.8.4.jar' to classloader
+INFO  - 2014-08-16 22:38:55.975; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/juniversalchardet-1.0.3.jar' to classloader
+INFO  - 2014-08-16 22:38:55.976; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/metadata-extractor-2.6.2.jar' to classloader
+INFO  - 2014-08-16 22:38:55.977; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/netcdf-4.2-min.jar' to classloader
+INFO  - 2014-08-16 22:38:55.977; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/pdfbox-1.8.4.jar' to classloader
+INFO  - 2014-08-16 22:38:55.978; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/poi-3.10-beta2.jar' to classloader
+INFO  - 2014-08-16 22:38:55.978; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/poi-ooxml-3.10-beta2.jar' to classloader
+INFO  - 2014-08-16 22:38:55.979; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/poi-ooxml-schemas-3.10-beta2.jar' to classloader
+INFO  - 2014-08-16 22:38:55.980; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/poi-scratchpad-3.10-beta2.jar' to classloader
+INFO  - 2014-08-16 22:38:55.980; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/rome-0.9.jar' to classloader
+INFO  - 2014-08-16 22:38:55.981; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/tagsoup-1.2.1.jar' to classloader
+INFO  - 2014-08-16 22:38:55.982; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/tika-core-1.5.jar' to classloader
+INFO  - 2014-08-16 22:38:55.983; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/tika-parsers-1.5.jar' to classloader
+INFO  - 2014-08-16 22:38:55.983; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/tika-xmp-1.5.jar' to classloader
+INFO  - 2014-08-16 22:38:55.984; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/vorbis-java-core-0.1.jar' to classloader
+INFO  - 2014-08-16 22:38:55.985; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/vorbis-java-tika-0.1.jar' to classloader
+INFO  - 2014-08-16 22:38:55.985; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/xercesImpl-2.9.1.jar' to classloader
+INFO  - 2014-08-16 22:38:55.986; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/xmlbeans-2.3.0.jar' to classloader
+INFO  - 2014-08-16 22:38:55.989; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/xmpcore-5.1.2.jar' to classloader
+INFO  - 2014-08-16 22:38:55.990; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/extraction/lib/xz-1.2.jar' to classloader
+INFO  - 2014-08-16 22:38:55.993; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/dist/solr-cell-4.8.0.jar' to classloader
+INFO  - 2014-08-16 22:38:55.995; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/clustering/lib/attributes-binder-1.2.1.jar' to classloader
+INFO  - 2014-08-16 22:38:55.996; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/clustering/lib/carrot2-mini-3.9.0.jar' to classloader
+INFO  - 2014-08-16 22:38:55.997; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/clustering/lib/hppc-0.5.2.jar' to classloader
+INFO  - 2014-08-16 22:38:55.997; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/clustering/lib/jackson-core-asl-1.9.13.jar' to classloader
+INFO  - 2014-08-16 22:38:55.998; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/clustering/lib/jackson-mapper-asl-1.9.13.jar' to classloader
+INFO  - 2014-08-16 22:38:55.998; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/clustering/lib/mahout-collections-1.0.jar' to classloader
+INFO  - 2014-08-16 22:38:55.999; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/clustering/lib/mahout-math-0.6.jar' to classloader
+INFO  - 2014-08-16 22:38:56.000; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/clustering/lib/simple-xml-2.7.jar' to classloader
+INFO  - 2014-08-16 22:38:56.002; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/dist/solr-clustering-4.8.0.jar' to classloader
+INFO  - 2014-08-16 22:38:56.003; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/langid/lib/jsonic-1.2.7.jar' to classloader
+INFO  - 2014-08-16 22:38:56.004; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/langid/lib/langdetect-1.1-20120112.jar' to classloader
+INFO  - 2014-08-16 22:38:56.006; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/dist/solr-langid-4.8.0.jar' to classloader
+INFO  - 2014-08-16 22:38:56.009; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/velocity/lib/commons-beanutils-1.7.0.jar' to classloader
+INFO  - 2014-08-16 22:38:56.009; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/velocity/lib/commons-collections-3.2.1.jar' to classloader
+INFO  - 2014-08-16 22:38:56.010; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/velocity/lib/velocity-1.7.jar' to classloader
+INFO  - 2014-08-16 22:38:56.010; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/contrib/velocity/lib/velocity-tools-2.0.jar' to classloader
+INFO  - 2014-08-16 22:38:56.013; org.apache.solr.core.SolrResourceLoader; Adding 'file:/C:/users/jonathan/documents/irweabsearch/solr/dist/solr-velocity-4.8.0.jar' to classloader
+INFO  - 2014-08-16 22:38:57.227; org.apache.solr.update.SolrIndexConfig; IndexWriter infoStream solr logging is enabled
+INFO  - 2014-08-16 22:38:57.248; org.apache.solr.core.SolrConfig; Using Lucene MatchVersion: LUCENE_48
+INFO  - 2014-08-16 22:38:57.608; org.apache.solr.core.SolrConfig; Loaded SolrConfig: solrconfig.xml
+INFO  - 2014-08-16 22:38:57.627; org.apache.solr.schema.IndexSchema; Reading Solr Schema from schema.xml
+INFO  - 2014-08-16 22:38:57.719; org.apache.solr.schema.IndexSchema; [collection1] Schema name=nutch
+INFO  - 2014-08-16 22:38:57.893; org.apache.solr.schema.IndexSchema; default search field in schema is content
+INFO  - 2014-08-16 22:38:57.894; org.apache.solr.schema.IndexSchema; query parser default operator is OR
+INFO  - 2014-08-16 22:38:57.895; org.apache.solr.schema.IndexSchema; unique key field: id
+INFO  - 2014-08-16 22:38:57.939; org.apache.solr.core.CoreContainer; Creating SolrCore 'collection1' using configuration from instancedir C:\users\jonathan\documents\irweabsearch\solr\example\solr\collection1\
+INFO  - 2014-08-16 22:38:57.969; org.apache.solr.core.SolrCore; solr.NRTCachingDirectoryFactory
+INFO  - 2014-08-16 22:38:57.983; org.apache.solr.core.SolrCore; [collection1] Opening new SolrCore at C:\users\jonathan\documents\irweabsearch\solr\example\solr\collection1\, dataDir=C:\Users\Jonathan\Documents\IRWeabsearch\solr\example\solr\collection1\data\
+INFO  - 2014-08-16 22:38:57.986; org.apache.solr.core.JmxMonitoredMap; No JMX servers found, not exposing Solr information with JMX.
+INFO  - 2014-08-16 22:38:57.999; org.apache.solr.core.SolrCore; [collection1] Added SolrEventListener for newSearcher: org.apache.solr.core.QuerySenderListener{queries=[]}
+INFO  - 2014-08-16 22:38:58.000; org.apache.solr.core.SolrCore; [collection1] Added SolrEventListener for firstSearcher: org.apache.solr.core.QuerySenderListener{queries=[{q=static firstSearcher warming in solrconfig.xml}]}
+INFO  - 2014-08-16 22:38:58.029; org.apache.solr.core.CachingDirectoryFactory; return new directory for C:\Users\Jonathan\Documents\IRWeabsearch\solr\example\solr\collection1\data
+INFO  - 2014-08-16 22:38:58.035; org.apache.solr.core.SolrCore; New index directory detected: old=null new=C:\Users\Jonathan\Documents\IRWeabsearch\solr\example\solr\collection1\data\index/
+INFO  - 2014-08-16 22:38:58.037; org.apache.solr.core.CachingDirectoryFactory; return new directory for C:\Users\Jonathan\Documents\IRWeabsearch\solr\example\solr\collection1\data\index
+INFO  - 2014-08-16 22:38:58.071; org.apache.solr.core.SolrCore; created json: solr.JSONResponseWriter
+INFO  - 2014-08-16 22:38:58.071; org.apache.solr.core.SolrCore; adding lazy queryResponseWriter: solr.VelocityResponseWriter
+INFO  - 2014-08-16 22:38:58.072; org.apache.solr.core.SolrCore; created velocity: solr.VelocityResponseWriter
+INFO  - 2014-08-16 22:38:58.079; org.apache.solr.core.SolrCore; created xslt: solr.XSLTResponseWriter
+INFO  - 2014-08-16 22:38:58.079; org.apache.solr.response.XSLTResponseWriter; xsltCacheLifetimeSeconds=5
+INFO  - 2014-08-16 22:38:58.228; org.apache.solr.core.SolrCore; no updateRequestProcessorChain defined as default, creating implicit default
+INFO  - 2014-08-16 22:38:58.239; org.apache.solr.core.RequestHandlers; created /select: solr.SearchHandler
+INFO  - 2014-08-16 22:38:58.240; org.apache.solr.core.RequestHandlers; created /query: solr.SearchHandler
+INFO  - 2014-08-16 22:38:58.243; org.apache.solr.core.RequestHandlers; created /get: solr.RealTimeGetHandler
+INFO  - 2014-08-16 22:38:58.243; org.apache.solr.core.RequestHandlers; created /browse: solr.SearchHandler
+INFO  - 2014-08-16 22:38:58.243; org.apache.solr.core.RequestHandlers; created /keks: solr.SearchHandler
+INFO  - 2014-08-16 22:38:58.247; org.apache.solr.core.RequestHandlers; created /update: solr.UpdateRequestHandler
+INFO  - 2014-08-16 22:38:58.247; org.apache.solr.core.RequestHandlers; created /update/json: solr.UpdateRequestHandler
+INFO  - 2014-08-16 22:38:58.247; org.apache.solr.core.RequestHandlers; created /update/csv: solr.UpdateRequestHandler
+INFO  - 2014-08-16 22:38:58.247; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.extraction.ExtractingRequestHandler
+INFO  - 2014-08-16 22:38:58.248; org.apache.solr.core.RequestHandlers; created /update/extract: solr.extraction.ExtractingRequestHandler
+INFO  - 2014-08-16 22:38:58.248; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.FieldAnalysisRequestHandler
+INFO  - 2014-08-16 22:38:58.248; org.apache.solr.core.RequestHandlers; created /analysis/field: solr.FieldAnalysisRequestHandler
+INFO  - 2014-08-16 22:38:58.249; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.DocumentAnalysisRequestHandler
+INFO  - 2014-08-16 22:38:58.249; org.apache.solr.core.RequestHandlers; created /analysis/document: solr.DocumentAnalysisRequestHandler
+INFO  - 2014-08-16 22:38:58.254; org.apache.solr.core.RequestHandlers; created /admin/: solr.admin.AdminHandlers
+INFO  - 2014-08-16 22:38:58.259; org.apache.solr.core.RequestHandlers; created /admin/ping: solr.PingRequestHandler
+INFO  - 2014-08-16 22:38:58.265; org.apache.solr.core.RequestHandlers; created /debug/dump: solr.DumpRequestHandler
+INFO  - 2014-08-16 22:38:58.282; org.apache.solr.core.RequestHandlers; created /replication: solr.ReplicationHandler
+INFO  - 2014-08-16 22:38:58.282; org.apache.solr.core.RequestHandlers; created /spellCheckCompRH: solr.SearchHandler
+INFO  - 2014-08-16 22:38:58.283; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.SearchHandler
+INFO  - 2014-08-16 22:38:58.283; org.apache.solr.core.RequestHandlers; created /spell: solr.SearchHandler
+INFO  - 2014-08-16 22:38:58.283; org.apache.solr.core.RequestHandlers; created /suggest: solr.SearchHandler
+INFO  - 2014-08-16 22:38:58.283; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.SearchHandler
+INFO  - 2014-08-16 22:38:58.283; org.apache.solr.core.RequestHandlers; created /tvrh: solr.SearchHandler
+INFO  - 2014-08-16 22:38:58.284; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.SearchHandler
+INFO  - 2014-08-16 22:38:58.284; org.apache.solr.core.RequestHandlers; created /terms: solr.SearchHandler
+INFO  - 2014-08-16 22:38:58.284; org.apache.solr.core.RequestHandlers; adding lazy requestHandler: solr.SearchHandler
+INFO  - 2014-08-16 22:38:58.284; org.apache.solr.core.RequestHandlers; created /elevate: solr.SearchHandler
+INFO  - 2014-08-16 22:38:58.284; org.apache.solr.core.RequestHandlers; created /suggest_phrase: org.apache.solr.handler.component.SearchHandler
+INFO  - 2014-08-16 22:38:58.349; org.apache.solr.handler.loader.XMLLoader; xsltCacheLifetimeSeconds=60
+INFO  - 2014-08-16 22:38:58.353; org.apache.solr.handler.loader.XMLLoader; xsltCacheLifetimeSeconds=60
+INFO  - 2014-08-16 22:38:58.354; org.apache.solr.handler.loader.XMLLoader; xsltCacheLifetimeSeconds=60
+INFO  - 2014-08-16 22:38:58.410; org.apache.solr.update.CommitTracker; Hard AutoCommit: if uncommited for 15000ms; 
+INFO  - 2014-08-16 22:38:58.410; org.apache.solr.update.CommitTracker; Soft AutoCommit: disabled
+INFO  - 2014-08-16 22:38:58.519; org.apache.solr.core.SolrDeletionPolicy; SolrDeletionPolicy.onInit: commits: num=1
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Jonathan\Documents\IRWeabsearch\solr\example\solr\collection1\data\index lockFactory=NativeFSLockFactory@C:\Users\Jonathan\Documents\IRWeabsearch\solr\example\solr\collection1\data\index; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_b6,generation=402}
+INFO  - 2014-08-16 22:38:58.520; org.apache.solr.core.SolrDeletionPolicy; newest commit generation = 402
+INFO  - 2014-08-16 22:38:58.731; org.apache.solr.search.SolrIndexSearcher; Opening Searcher@741a0bfd[collection1] main
+INFO  - 2014-08-16 22:38:58.739; org.apache.solr.rest.ManagedResourceStorage$FileStorageIO; File-based storage initialized to use dir: C:\users\jonathan\documents\irweabsearch\solr\example\solr\collection1\conf
+INFO  - 2014-08-16 22:38:58.739; org.apache.solr.rest.RestManager; Initializing RestManager with initArgs: {storageDir=C:\users\jonathan\documents\irweabsearch\solr\example\solr\collection1\conf\}
+INFO  - 2014-08-16 22:38:58.749; org.apache.solr.rest.ManagedResourceStorage; Reading _rest_managed.json using file:dir=C:\users\jonathan\documents\irweabsearch\solr\example\solr\collection1\conf
+WARN  - 2014-08-16 22:38:58.749; org.apache.solr.rest.ManagedResource; No stored data found for /rest/managed
+WARN  - 2014-08-16 22:38:58.750; org.apache.solr.rest.ManagedResource; No registered observers for /rest/managed
+INFO  - 2014-08-16 22:38:58.750; org.apache.solr.rest.RestManager; Initializing 0 registered ManagedResources
+INFO  - 2014-08-16 22:38:58.750; org.apache.solr.handler.component.SpellCheckComponent; Initializing spell checkers
+INFO  - 2014-08-16 22:38:58.766; org.apache.solr.handler.component.SpellCheckComponent; Registering newSearcher listener for spellchecker: default
+INFO  - 2014-08-16 22:38:58.791; org.apache.solr.handler.component.SuggestComponent; Initializing SuggestComponent
+INFO  - 2014-08-16 22:38:58.793; org.apache.solr.spelling.suggest.SolrSuggester; init: {name=mySuggester,lookupImpl=FuzzyLookupFactory,dictionaryImpl=DocumentDictionaryFactory,field=cat,weightField=price,suggestAnalyzerFieldType=string}
+INFO  - 2014-08-16 22:38:58.908; org.apache.solr.spelling.suggest.SolrSuggester; Dictionary loaded with params: {name=mySuggester,lookupImpl=FuzzyLookupFactory,dictionaryImpl=DocumentDictionaryFactory,field=cat,weightField=price,suggestAnalyzerFieldType=string}
+INFO  - 2014-08-16 22:38:58.910; org.apache.solr.handler.component.QueryElevationComponent; Loading QueryElevation from: C:\users\jonathan\documents\irweabsearch\solr\example\solr\collection1\conf\elevate.xml
+INFO  - 2014-08-16 22:38:58.955; org.apache.solr.handler.component.SpellCheckComponent; Initializing spell checkers
+INFO  - 2014-08-16 22:38:58.958; org.apache.solr.spelling.suggest.Suggester; init: {name=suggest_phrase,classname=org.apache.solr.spelling.suggest.Suggester,lookupImpl=org.apache.solr.spelling.suggest.jaspell.JaspellLookupFactory,field=suggest_phrase,buildOnCommit=true,spellcheckIndexDir=C:\spellchecker,thresholdTokenFrequency=0.005,threshold=0.005}
+INFO  - 2014-08-16 22:38:58.959; org.apache.solr.spelling.suggest.jaspell.JaspellLookupFactory; init: {name=suggest_phrase,classname=org.apache.solr.spelling.suggest.Suggester,lookupImpl=org.apache.solr.spelling.suggest.jaspell.JaspellLookupFactory,field=suggest_phrase,buildOnCommit=true,spellcheckIndexDir=C:\spellchecker,thresholdTokenFrequency=0.005,threshold=0.005}
+INFO  - 2014-08-16 22:38:58.962; org.apache.solr.handler.component.SpellCheckComponent; Registering newSearcher listener for spellchecker: suggest_phrase
+INFO  - 2014-08-16 22:38:58.974; org.apache.solr.handler.ReplicationHandler; Commits will be reserved for  10000
+INFO  - 2014-08-16 22:38:58.975; org.apache.solr.core.QuerySenderListener; QuerySenderListener sending requests to Searcher@741a0bfd[collection1] main{StandardDirectoryReader(segments_b6:1326:nrt _9z(4.8):C7277/638:delGen=8 _ct(4.8):C4707 _dd(4.8):C1190 _do(4.8):C656 _dp(4.8):C73)}
+INFO  - 2014-08-16 22:38:58.976; org.apache.solr.core.CoreContainer; registering core: collection1
+INFO  - 2014-08-16 22:38:58.980; org.apache.solr.servlet.SolrDispatchFilter; user.dir=C:\users\jonathan\documents\irweabsearch\solr\example
+INFO  - 2014-08-16 22:38:58.980; org.apache.solr.servlet.SolrDispatchFilter; SolrDispatchFilter.init() done
+ERROR - 2014-08-16 22:38:59.044; org.apache.solr.common.SolrException; org.apache.solr.common.SolrException: undefined field text
+	at org.apache.solr.schema.IndexSchema.getDynamicFieldType(IndexSchema.java:1246)
+	at org.apache.solr.schema.IndexSchema$SolrQueryAnalyzer.getWrappedAnalyzer(IndexSchema.java:419)
+	at org.apache.lucene.analysis.AnalyzerWrapper.initReader(AnalyzerWrapper.java:117)
+	at org.apache.lucene.analysis.Analyzer.tokenStream(Analyzer.java:178)
+	at org.apache.lucene.util.QueryBuilder.createFieldQuery(QueryBuilder.java:207)
+	at org.apache.solr.parser.SolrQueryParserBase.newFieldQuery(SolrQueryParserBase.java:375)
+	at org.apache.solr.parser.SolrQueryParserBase.getFieldQuery(SolrQueryParserBase.java:743)
+	at org.apache.solr.parser.SolrQueryParserBase.handleBareTokenQuery(SolrQueryParserBase.java:542)
+	at org.apache.solr.parser.QueryParser.Term(QueryParser.java:299)
+	at org.apache.solr.parser.QueryParser.Clause(QueryParser.java:185)
+	at org.apache.solr.parser.QueryParser.Query(QueryParser.java:107)
+	at org.apache.solr.parser.QueryParser.TopLevelQuery(QueryParser.java:96)
+	at org.apache.solr.parser.SolrQueryParserBase.parse(SolrQueryParserBase.java:152)
+	at org.apache.solr.search.LuceneQParser.parse(LuceneQParser.java:50)
+	at org.apache.solr.search.QParser.getQuery(QParser.java:141)
+	at org.apache.solr.handler.component.QueryComponent.prepare(QueryComponent.java:145)
+	at org.apache.solr.handler.component.SearchHandler.handleRequestBody(SearchHandler.java:197)
+	at org.apache.solr.handler.RequestHandlerBase.handleRequest(RequestHandlerBase.java:135)
+	at org.apache.solr.core.SolrCore.execute(SolrCore.java:1952)
+	at org.apache.solr.core.QuerySenderListener.newSearcher(QuerySenderListener.java:64)
+	at org.apache.solr.core.SolrCore$5.call(SolrCore.java:1724)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+INFO  - 2014-08-16 22:38:59.104; org.eclipse.jetty.server.AbstractConnector; Started SocketConnector@0.0.0.0:8983
+INFO  - 2014-08-16 22:38:59.212; org.apache.solr.core.SolrCore; [collection1] webapp=null path=null params={q=static+firstSearcher+warming+in+solrconfig.xml&distrib=false&event=firstSearcher} status=400 QTime=233 
+INFO  - 2014-08-16 22:38:59.213; org.apache.solr.core.QuerySenderListener; QuerySenderListener done.
+INFO  - 2014-08-16 22:38:59.213; org.apache.solr.handler.component.SpellCheckComponent$SpellCheckerListener; Loading spell index for spellchecker: default
+INFO  - 2014-08-16 22:38:59.219; org.apache.solr.handler.component.SpellCheckComponent$SpellCheckerListener; Loading spell index for spellchecker: wordbreak
+INFO  - 2014-08-16 22:38:59.219; org.apache.solr.handler.component.SuggestComponent$SuggesterListener; Loading suggester index for: mySuggester
+INFO  - 2014-08-16 22:38:59.220; org.apache.solr.spelling.suggest.SolrSuggester; reload()
+INFO  - 2014-08-16 22:38:59.220; org.apache.solr.spelling.suggest.SolrSuggester; build()
+INFO  - 2014-08-16 22:39:00.208; org.apache.solr.handler.component.SpellCheckComponent$SpellCheckerListener; Loading spell index for spellchecker: suggest_phrase
+INFO  - 2014-08-16 22:39:00.209; org.apache.solr.spelling.suggest.Suggester; reload()
+INFO  - 2014-08-16 22:39:00.209; org.apache.solr.spelling.suggest.Suggester; build()
+INFO  - 2014-08-16 22:39:00.520; org.apache.solr.core.SolrCore; [collection1] Registered new searcher Searcher@741a0bfd[collection1] main{StandardDirectoryReader(segments_b6:1326:nrt _9z(4.8):C7277/638:delGen=8 _ct(4.8):C4707 _dd(4.8):C1190 _do(4.8):C656 _dp(4.8):C73)}
+INFO  - 2014-08-16 22:39:04.084; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Florian} hits=382 status=0 QTime=192 
+INFO  - 2014-08-16 22:46:26.302; org.apache.solr.servlet.SolrDispatchFilter; [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1408221986286} status=0 QTime=3 
+INFO  - 2014-08-16 22:46:26.348; org.apache.solr.servlet.SolrDispatchFilter; [admin] webapp=null path=/admin/info/system params={wt=json&_=1408221986332} status=0 QTime=5 
+INFO  - 2014-08-16 22:46:28.065; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/admin/file/ params={file=admin-extra.menu-top.html&contentType=text/html;charset%3Dutf-8&_=1408221988043} status=0 QTime=2 
+INFO  - 2014-08-16 22:46:28.084; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/admin/file/ params={file=admin-extra.menu-bottom.html&contentType=text/html;charset%3Dutf-8&_=1408221988044} status=0 QTime=1 
+INFO  - 2014-08-16 22:46:28.176; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/admin/luke params={show=index&numTerms=0&wt=json&_=1408221988103} status=0 QTime=3 
+INFO  - 2014-08-16 22:46:28.200; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/admin/system params={wt=json&_=1408221988113} status=0 QTime=3 
+INFO  - 2014-08-16 22:46:28.201; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/replication params={wt=json&command=details&_=1408221988111} status=0 QTime=18 
+INFO  - 2014-08-16 22:46:28.229; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/admin/file/ params={file=admin-extra.html&_=1408221988119} status=0 QTime=2 
+INFO  - 2014-08-16 22:46:28.249; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/admin/ping params={action=status&wt=json&_=1408221988121} status=503 QTime=1 
+INFO  - 2014-08-16 23:33:02.134; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Fl&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=10 
+INFO  - 2014-08-16 23:33:02.140; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Floria&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-16 23:33:02.143; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Flo&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=19 
+INFO  - 2014-08-16 23:33:02.195; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Flor&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-16 23:33:02.195; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Flori&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-16 23:33:02.218; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Florian&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-16 23:33:02.858; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Florian&qt=/keks&start=0&wt=javabin&version=2} hits=382 status=0 QTime=207 
+INFO  - 2014-08-16 23:33:57.584; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Florian&qt=/keks&start=0&wt=javabin&version=2} hits=382 status=0 QTime=40 
+INFO  - 2014-08-16 23:35:00.124; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Florian&qt=/keks&start=0&wt=javabin&version=2} hits=382 status=0 QTime=25 
+INFO  - 2014-08-16 23:35:03.654; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Florian&qt=/keks&start=0&wt=javabin&version=2} hits=382 status=0 QTime=17 
+INFO  - 2014-08-16 23:35:04.899; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Florian&qt=/keks&start=0&wt=javabin&version=2} hits=382 status=0 QTime=15 
+INFO  - 2014-08-16 23:35:07.366; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Florian&qt=/keks&start=0&wt=javabin&version=2} hits=382 status=0 QTime=12 
+INFO  - 2014-08-16 23:35:12.836; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Florian&qt=/keks&start=0&wt=javabin&version=2} hits=382 status=0 QTime=11 
+INFO  - 2014-08-16 23:35:28.007; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Florian&qt=/keks&start=10&wt=javabin&version=2} hits=382 status=0 QTime=12 
+INFO  - 2014-08-16 23:35:38.416; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-16 23:35:39.379; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=M&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-16 23:35:39.619; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Me&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-16 23:35:39.797; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Med&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-16 23:35:39.895; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Medi&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-16 23:35:40.121; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Medie&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-16 23:35:40.595; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Medi&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-16 23:35:40.735; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Med&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-16 23:35:41.479; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Mede&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-16 23:35:41.669; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Med&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-16 23:35:41.789; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Medi&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-16 23:35:41.906; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Medie&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-16 23:35:42.010; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Medien&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-16 23:35:42.473; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Medieni&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-16 23:35:42.619; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Medienin&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-16 23:35:42.680; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Medieninf&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-16 23:35:42.809; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Medieninfo&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-16 23:35:42.921; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Medieninfor&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-16 23:35:43.001; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Medieninform&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-16 23:35:43.112; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Medieninforma&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-16 23:35:43.251; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Medieninformat&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-16 23:35:43.282; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Medieninformati&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-16 23:35:43.460; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Medieninformatik&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-16 23:35:43.643; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=0&wt=javabin&version=2} hits=125 status=0 QTime=38 
+INFO  - 2014-08-16 23:35:59.885; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=0&wt=javabin&version=2} hits=125 status=0 QTime=133 
+INFO  - 2014-08-16 23:36:28.639; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=0&wt=javabin&version=2} hits=125 status=0 QTime=20 
+INFO  - 2014-08-16 23:36:37.747; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=0&wt=javabin&version=2} hits=125 status=0 QTime=16 
+INFO  - 2014-08-16 23:36:38.672; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=0&wt=javabin&version=2} hits=125 status=0 QTime=17 
+INFO  - 2014-08-16 23:36:39.350; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=0&wt=javabin&version=2} hits=125 status=0 QTime=13 
+INFO  - 2014-08-16 23:36:42.729; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=0&wt=javabin&version=2} hits=125 status=0 QTime=19 
+INFO  - 2014-08-16 23:36:47.048; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=0&wt=javabin&version=2} hits=125 status=0 QTime=19 
+INFO  - 2014-08-16 23:37:03.740; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=10&wt=javabin&version=2} hits=125 status=0 QTime=18 
+INFO  - 2014-08-16 23:37:10.404; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=20&wt=javabin&version=2} hits=125 status=0 QTime=17 
+INFO  - 2014-08-16 23:37:13.815; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=50&wt=javabin&version=2} hits=125 status=0 QTime=28 
+INFO  - 2014-08-16 23:38:05.799; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=50&wt=javabin&version=2} hits=125 status=0 QTime=19 
+INFO  - 2014-08-16 23:38:19.443; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=0&wt=javabin&version=2} hits=125 status=0 QTime=18 
+INFO  - 2014-08-16 23:38:24.488; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=20&wt=javabin&version=2} hits=125 status=0 QTime=9 
+INFO  - 2014-08-16 23:38:41.957; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=10&wt=javabin&version=2} hits=125 status=0 QTime=21 
+INFO  - 2014-08-16 23:38:44.112; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-16 23:38:47.182; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=0&wt=javabin&version=2} hits=125 status=0 QTime=23 
+INFO  - 2014-08-16 23:39:12.499; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=0&wt=javabin&version=2} hits=125 status=0 QTime=16 
+INFO  - 2014-08-16 23:39:19.650; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=0&wt=javabin&version=2} hits=125 status=0 QTime=25 
+INFO  - 2014-08-16 23:39:24.183; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=10&wt=javabin&version=2} hits=125 status=0 QTime=14 
+INFO  - 2014-08-16 23:39:30.085; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=0&wt=javabin&version=2} hits=125 status=0 QTime=14 
+INFO  - 2014-08-16 23:47:11.353; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=0&wt=javabin&version=2} hits=125 status=0 QTime=17 
+INFO  - 2014-08-16 23:47:25.544; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=0&wt=javabin&version=2} hits=125 status=0 QTime=14 
+INFO  - 2014-08-16 23:47:30.018; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=10&wt=javabin&version=2} hits=125 status=0 QTime=14 
+INFO  - 2014-08-16 23:47:36.357; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=90&wt=javabin&version=2} hits=125 status=0 QTime=16 
+INFO  - 2014-08-16 23:47:57.455; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=90&wt=javabin&version=2} hits=125 status=0 QTime=13 
+INFO  - 2014-08-16 23:48:04.103; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=90&wt=javabin&version=2} hits=125 status=0 QTime=14 
+INFO  - 2014-08-16 23:48:09.533; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=80&wt=javabin&version=2} hits=125 status=0 QTime=16 
+INFO  - 2014-08-16 23:51:08.125; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=80&wt=javabin&version=2} hits=125 status=0 QTime=13 
+INFO  - 2014-08-16 23:51:36.762; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=80&wt=javabin&version=2} hits=125 status=0 QTime=14 
+INFO  - 2014-08-16 23:51:40.320; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=80&wt=javabin&version=2} hits=125 status=0 QTime=16 
+INFO  - 2014-08-16 23:53:53.477; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=80&wt=javabin&version=2} hits=125 status=0 QTime=12 
+INFO  - 2014-08-16 23:53:59.995; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=80&wt=javabin&version=2} hits=125 status=0 QTime=12 
+INFO  - 2014-08-16 23:54:04.221; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=80&wt=javabin&version=2} hits=125 status=0 QTime=13 
+INFO  - 2014-08-16 23:54:06.578; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=70&wt=javabin&version=2} hits=125 status=0 QTime=8 
+INFO  - 2014-08-16 23:54:09.138; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=60&wt=javabin&version=2} hits=125 status=0 QTime=8 
+INFO  - 2014-08-16 23:54:11.679; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=70&wt=javabin&version=2} hits=125 status=0 QTime=7 
+INFO  - 2014-08-16 23:54:14.695; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=60&wt=javabin&version=2} hits=125 status=0 QTime=8 
+INFO  - 2014-08-16 23:54:16.451; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=50&wt=javabin&version=2} hits=125 status=0 QTime=19 
+INFO  - 2014-08-16 23:54:18.442; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=40&wt=javabin&version=2} hits=125 status=0 QTime=8 
+INFO  - 2014-08-16 23:54:20.500; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=30&wt=javabin&version=2} hits=125 status=0 QTime=12 
+INFO  - 2014-08-16 23:54:23.292; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=20&wt=javabin&version=2} hits=125 status=0 QTime=13 
+INFO  - 2014-08-16 23:54:25.673; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=10&wt=javabin&version=2} hits=125 status=0 QTime=17 
+INFO  - 2014-08-16 23:54:27.558; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=0&wt=javabin&version=2} hits=125 status=0 QTime=13 
+INFO  - 2014-08-16 23:54:30.886; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=90&wt=javabin&version=2} hits=125 status=0 QTime=15 
+INFO  - 2014-08-16 23:54:32.853; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=130&wt=javabin&version=2} hits=125 status=0 QTime=4 
+INFO  - 2014-08-16 23:54:35.787; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=120&wt=javabin&version=2} hits=125 status=0 QTime=50 
+INFO  - 2014-08-16 23:54:45.561; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=150&wt=javabin&version=2} hits=125 status=0 QTime=1 
+INFO  - 2014-08-16 23:54:46.650; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=190&wt=javabin&version=2} hits=125 status=0 QTime=1 
+INFO  - 2014-08-16 23:54:47.297; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=230&wt=javabin&version=2} hits=125 status=0 QTime=1 
+INFO  - 2014-08-16 23:54:47.890; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=270&wt=javabin&version=2} hits=125 status=0 QTime=1 
+INFO  - 2014-08-16 23:54:48.835; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=220&wt=javabin&version=2} hits=125 status=0 QTime=1 
+INFO  - 2014-08-16 23:54:49.330; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=170&wt=javabin&version=2} hits=125 status=0 QTime=1 
+INFO  - 2014-08-16 23:54:49.942; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=120&wt=javabin&version=2} hits=125 status=0 QTime=46 
+INFO  - 2014-08-16 23:55:26.576; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=120&wt=javabin&version=2} hits=125 status=0 QTime=40 
+INFO  - 2014-08-16 23:55:29.572; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=110&wt=javabin&version=2} hits=125 status=0 QTime=35 
+INFO  - 2014-08-16 23:55:35.335; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=120&wt=javabin&version=2} hits=125 status=0 QTime=43 
+INFO  - 2014-08-16 23:55:38.978; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=130&wt=javabin&version=2} hits=125 status=0 QTime=1 
+INFO  - 2014-08-16 23:55:45.039; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=130&wt=javabin&version=2} hits=125 status=0 QTime=1 
+INFO  - 2014-08-16 23:55:46.105; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=130&wt=javabin&version=2} hits=125 status=0 QTime=1 
+INFO  - 2014-08-16 23:55:56.228; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=130&wt=javabin&version=2} hits=125 status=0 QTime=0 
+INFO  - 2014-08-16 23:55:57.567; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=120&wt=javabin&version=2} hits=125 status=0 QTime=39 
+INFO  - 2014-08-16 23:56:01.662; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=110&wt=javabin&version=2} hits=125 status=0 QTime=32 
+INFO  - 2014-08-16 23:56:04.011; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=100&wt=javabin&version=2} hits=125 status=0 QTime=19 
+INFO  - 2014-08-16 23:56:06.595; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=110&wt=javabin&version=2} hits=125 status=0 QTime=28 
+INFO  - 2014-08-16 23:56:28.116; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=110&wt=javabin&version=2} hits=125 status=0 QTime=43 
+INFO  - 2014-08-16 23:56:29.182; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=120&wt=javabin&version=2} hits=125 status=0 QTime=39 
+INFO  - 2014-08-16 23:57:13.795; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=70&wt=javabin&version=2} hits=125 status=0 QTime=7 
+INFO  - 2014-08-16 23:57:18.199; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=20&wt=javabin&version=2} hits=125 status=0 QTime=9 
+INFO  - 2014-08-16 23:57:21.976; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Medieninformatik&qt=/keks&start=0&wt=javabin&version=2} hits=125 status=0 QTime=16 

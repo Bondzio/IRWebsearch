@@ -1,12 +1,17 @@
 #quicklinks {
   position: absolute;
   top: 0;
-  margin-left: 210px;
   background-color: #8e8e8d;
   padding: 5px;
   padding-top: 20px;
   height: 85px;
   width: 436px;
+}
+
+#quicklinks, div#pagination, #search {
+  margin-left: 210px;
+  padding: 5px;
+
 }
 
 #quicklinks ul {
@@ -28,7 +33,6 @@
 
 
 #search {
-	 margin-left: 210px;
 	margin-top: 40px;
 	
 	min-width: 400px;
@@ -126,4 +130,18 @@ h3.result-title {
   height: 33px;
   margin-top: -6px;
   overflow: hidden;
+}
+
+div#pagination {
+  margin-bottom: 100px;
+}
+
+div #pagination a {
+  display: inline-block;
+  padding-right: 20px;
+  font-size: 15pt;
+}
+
+div #pagination a.active {
+  font-weight: bold;
 }

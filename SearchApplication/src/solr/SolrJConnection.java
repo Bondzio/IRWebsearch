@@ -23,7 +23,7 @@ public class SolrJConnection {
 	public SolrJConnection() {
 	}
 	
-	public String[] doStuff(String query) {
+	public String[] getSuggestions(String query) {
 		String[] results = null;
 		server = new HttpSolrServer("http://localhost:8983/solr");
 		
@@ -51,7 +51,13 @@ public class SolrJConnection {
 		return results;
 	}
 	
-	public String[][] getResultsForQuery(String query) {
+	public ResultsObject getResultsForQuery(String query) {
+		return getResultsForQuery(query, 1);
+	}
+	
+	public ResultsObject getResultsForQuery(String query, int page) {
+		ResultsObject obj = new ResultsObject();
+		
 		String[][] results = null;
 		
 
@@ -59,12 +65,15 @@ public class SolrJConnection {
 		
 		ModifiableSolrParams params = new ModifiableSolrParams();
 		params.set("qt", "/keks");
+		params.set("start", (page-1)*10);
 		params.set("q", query);
 		
 		try {
 			QueryResponse response = server.query(params);
 			SolrDocumentList queryResults = response.getResults();
 			 
+			obj.numResults = (int) queryResults.getNumFound();
+			
 			results = new String[queryResults.size()][4];
 			
 
@@ -112,9 +121,16 @@ public class SolrJConnection {
 			e.printStackTrace();
 		}
 		
+		obj.actualResults = results;
 		
-		
-		return results;
+		return obj;
+	}
+	
+	public class ResultsObject {
+		public int numResults;
+		public String[][] actualResults;
+		public String[] relatedQueries;
+		public String[] filters;
 	}
 	
 }
