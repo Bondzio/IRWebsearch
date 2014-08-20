@@ -12,6 +12,7 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.util.GenericOptionsParser;
 import org.apache.nutch.protocol.Content;
 import org.apache.nutch.util.NutchConfiguration;
+import org.apache.solr.search.Grouping.TotalCount;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Attributes;
 import org.jsoup.nodes.Document;
@@ -37,13 +38,16 @@ public class MainClass {
 	
 	public static void main(String[] args) throws IOException {
 		//for(int i = 0; i < segments.length; i++) {
+		int totalDocCounter = 0;
+		boolean stop = false;
 		for(int i = 4; i < segments.length; i++) {	
-			oldMain(segments[i]);
+			if(totalDocCounter == 100) break;
+			totalDocCounter = oldMain(segments[i], totalDocCounter);
 		}
 		
 	}
 	
-	private static void oldMain (String segmentNum) throws IOException {
+	private static int oldMain (String segmentNum, int totalDocCounter) throws IOException {
 		Configuration conf = NutchConfiguration.create();
         Options opts = new Options();
         GenericOptionsParser parser = new GenericOptionsParser(conf, opts, new String[]{"C:/cygwin64/home/apache-nutch-1.4-bin/runtime/local/bin/crawl44/segments/"+segmentNum});
@@ -89,8 +93,12 @@ public class MainClass {
             //   Document doc = Jsoup.parse(new URL("http://www.ur.de/index.html"), 1000);
             	String s = bla.parseDocument(doc, content.getBaseUrl());
             	if(!s.equals("")) {
-            		System.out.println("Writing to file: " + newFile.getAbsolutePath());
             		w.write(s);
+            		totalDocCounter++;
+            		System.out.println(totalDocCounter);
+            		if(totalDocCounter == 100) {
+            			break;
+            		}
             	}
             } catch (Exception e) {
             }
@@ -99,6 +107,7 @@ public class MainClass {
 		w.write("\n</add>");
 		w.close();
 		reader.close();
+		return totalDocCounter;
 	}
 	
 	// TODO PDFs are still excluded!!

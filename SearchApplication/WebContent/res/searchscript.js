@@ -2,6 +2,22 @@
  * 
  */
 
+// http://javascript.jstruebig.de/javascript/59
+function getQuery(){
+    var s = window.location.search.substring(1).split('&');
+    if(!s.length) return;
+    for(var i  = 0; i < s.length; i++) {
+        var parts = s[i].split('=');
+        if(parts[0] == "q") {
+        	return parts[1].replace("+", " ");
+        }
+    }
+    
+};
+
+
+document.getElementById("quicksearch-input").value = getQuery();
+
 /*
  * Shows 
  */

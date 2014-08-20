@@ -2,12 +2,18 @@
  * 
  */
 
+
 searchbox = $("#quicksearch-input");
 
 searchbox.on("click", onSearchboxClick);
 searchbox.on("input", onSearchboxInput);
 
+
+
 searchbox.autocomplete("enable");
+
+
+
 
 /*
  * Shows 
