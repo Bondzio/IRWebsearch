@@ -1,0 +1,87 @@
+#**
+ *  Render the bottom section of the page visible to users
+ *#
+
+<hr/>
+<div>
+<div>
+			<a id="skipnav" href="#content-start">Zu Hauptinhalt springen</a>
+	</div>
+
+	<div class="navigation">
+		<div id="navigation-header">
+			<a href="#">Navigation</a>
+		</div>
+		<div id="navigation-content">
+			<div class="dots-horizontal"></div>
+				
+				<div class="column-1 deeplinks" aria-role="navigation">
+					<ul>
+						<li><a href="http://www.uni-regensburg.de/forschung/index.html">Forschung</a></li>
+						<li><a href="http://www.uni-regensburg.de/studium/index.html">Studium</a></li>
+						<li><a href="http://www.uni-regensburg.de/wirtschaftskontakte/index.html">Netzwerke</a></li>
+					</ul>
+					<ul>
+						<li><a href="http://www.uni-regensburg.de/international/index.html">International</a></li>
+						<li><a href="http://www.uni-regensburg.de/chancengleichheit/index.html">Chancengleichheit</a></li>
+						<li><a href="http://www.uni-regensburg.de/studium/bewerbung-einschreibung/index.html">Studieninteressierte</a></li>
+					</ul>
+					<ul>
+						<li><a href="http://www.uni-regensburg.de/bibliothek/index.html">Bibliothek</a></li>
+						<li><a href="http://www.uni-regensburg.de/rechenzentrum/index.html">Rechenzentrum</a></li>
+						<li><a href="http://www.uni-regensburg.de/verwaltung/index.html">Verwaltung</a></li>
+					</ul>
+					<ul class="last-child">
+						<li><a href="https://elearning.uni-regensburg.de/">E-Learning</a></li>
+						<li><a href="https://lsf.uni-regensburg.de/qisserver/rds?state=user&amp;type=0&amp;idcol=k_semester&amp;idval=20142&amp;getglobal=semester">Vorlesungen</a></li>
+						<li><a href="https://gw.uni-regensburg.de/gw/webacc">Webmail</a></li>
+					</ul>
+				</div>
+
+
+		<div class="column-2" aria-role="navigation">
+
+
+				<a href="http://www.uni-regensburg.de/aktuelles/index.html">Aktuelles</a>
+
+				<a href="http://www.uni-regensburg.de/bayhost">BAYHOST</a>
+
+				<a href="http://www.uni-regensburg.de/einrichtungen">Einrichtungen</a>
+
+				<a href="http://www.uni-regensburg.de/europaeum">Europaeum</a>
+
+				<a href="http://www.uni-regensburg.de/fakultaeten/">Fakultäten</a>
+
+				<a href="https://www-flexnow.uni-regensburg.de/Flexnow/diensteframes.htm">Flexnow</a>
+
+				<a href="http://www.uniklinikum-regensburg.de">Klinikum</a>
+
+				<a href="http://www.uni-regensburg.de/kultur-freizeit/index.html">Kultur &amp; Freizeit</a>
+
+				<a href="http://www.uni-regensburg.de/mensa/index.html">Mensa</a>
+
+				<a href="http://www.uni-regensburg.de/universitaet/personalrat/index.html">Personalrat</a>
+
+				<a href="http://www.uni-regensburg.de/qualitaetsmanagement/index.html">Qualitätsmanagement</a>
+
+				<a href="http://www.uni-regensburg.de/cgi-bin/site_active.pl?TEMPLATE=/rul/calendar.htms">RUL</a>
+
+				<a href="http://www.uni-regensburg.de/sport/index.html">Sport</a>
+
+				<a href="http://www.uni-regensburg.de/studierende-aktiv/index.html">Studentische Initiativen</a>
+
+				<a href="http://www.uni-regensburg.de/technische-zentrale/index.html">Technische Zentrale</a>
+
+				<a href="http://www.campusstore-regensburg.de/">Uni-Shop</a>
+
+				<a href="http://www.uni-regensburg.de/zentrum-hochschul-wissenschaftsdidaktik/index.html">ZHW</a>
+
+				<a href="http://www.uni-regensburg.de/zentrum-sprache-kommunikation/leitung/index.html">ZSK</a>
+
+
+		</div>
+
+
+		</div>
+	</div>
+</div>
