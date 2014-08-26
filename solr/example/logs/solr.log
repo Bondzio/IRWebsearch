@@ -4735,3 +4735,248 @@ INFO  - 2014-08-26 16:25:16.463; org.apache.solr.core.SolrCore; [test1] webapp=/
 INFO  - 2014-08-26 16:25:16.484; org.apache.solr.core.SolrCore; [test1] webapp=/solr path=/keks params={q=freizeitangebote&qt=/keks&wt=javabin&version=2} hits=1 status=0 QTime=10 
 INFO  - 2014-08-26 16:25:53.981; org.apache.solr.core.SolrCore; [test1] webapp=/solr path=/keks params={q=was+ist+informationswissenschaft} hits=2 status=0 QTime=28 
 INFO  - 2014-08-26 16:27:02.764; org.apache.solr.core.SolrCore; [test1] webapp=/solr path=/keks params={q=informationswissenschaft} hits=15 status=0 QTime=56 
+INFO  - 2014-08-26 16:34:31.209; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:34:31.212; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=tes&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=2 
+INFO  - 2014-08-26 16:34:31.213; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=te&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=5 
+INFO  - 2014-08-26 16:34:31.213; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=t&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=5 
+INFO  - 2014-08-26 16:34:31.377; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=test&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:34:31.561; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=test&qt=/keks&start=0&wt=javabin&version=2} hits=235 status=0 QTime=28 
+INFO  - 2014-08-26 16:35:05.981; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=test&qt=/keks&start=0&wt=javabin&version=2} hits=235 status=0 QTime=13 
+INFO  - 2014-08-26 16:35:10.386; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:35:10.855; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:35:11.862; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=f&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:35:11.953; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=fl&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:35:12.140; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=flo&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:35:12.277; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=flor&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:35:12.343; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=flori&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:35:12.451; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=floria&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:35:12.555; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=florian&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:35:12.612; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=florian+&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:35:12.726; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=florian+m&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:35:12.869; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=florian+me&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:35:12.951; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=florian+mei&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:35:13.044; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=florian+meie&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:35:13.208; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=florian+meier&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:35:13.361; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=florian+meier&qt=/keks&start=0&wt=javabin&version=2} hits=74 status=0 QTime=23 
+INFO  - 2014-08-26 16:42:18.734; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=P&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:42:18.941; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Pr&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:42:19.011; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Pro&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:42:19.376; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Prof&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:42:19.505; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Prof+&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:42:19.831; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Prof+W&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:42:19.966; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Prof+Wo&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:42:20.150; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Prof+Wol&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:42:20.323; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Prof+Wolf&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:42:20.488; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Prof+Wolff&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:42:22.018; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Prof+Wolff&qt=/keks&start=0&wt=javabin&version=2} hits=108 status=0 QTime=71 
+INFO  - 2014-08-26 16:42:32.430; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Prof+&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:42:32.682; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Prof+M&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:42:32.864; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Prof+Me&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:42:32.950; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Prof+Mei&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:42:33.178; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Prof+Me&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:42:33.311; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Prof+M&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:42:33.430; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Prof+&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:42:33.604; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Prof+L&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:42:33.826; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Prof+Lu&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:42:33.934; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Prof+Lud&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:42:34.020; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Prof+Ludw&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:42:34.115; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Prof+Ludwi&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:42:34.243; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Prof+Ludwig&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:42:34.374; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Prof+Ludwig&qt=/keks&start=0&wt=javabin&version=2} hits=349 status=0 QTime=18 
+INFO  - 2014-08-26 16:43:07.359; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:43:07.564; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:43:08.912; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=M&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:43:09.054; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Me&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:43:09.274; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=M&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:43:09.723; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:43:09.932; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=F&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:43:10.146; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Fl&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:43:10.265; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Flo&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:43:10.329; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Flor&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:43:10.446; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Flori&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:43:10.527; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Floria&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:43:10.617; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Florian&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:43:10.697; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Florian+&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:43:10.804; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Florian+M&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:43:10.947; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Florian+Me&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:43:10.998; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Florian+Mei&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:43:11.104; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Florian+Meie&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:43:11.219; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Florian+Meier&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:43:11.297; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Florian+Meier&qt=/keks&start=0&wt=javabin&version=2} hits=74 status=0 QTime=8 
+INFO  - 2014-08-26 16:44:38.481; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:44:38.620; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:44:38.746; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:45:42.949; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=H&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:45:43.139; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Ha&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:45:43.197; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Ham&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:45:43.334; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Hamm&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:45:43.426; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Hammw&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:45:43.583; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Hammwö&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:45:43.880; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Hammwöh&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:45:44.001; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Hammwöhn&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:45:44.084; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Hammwöhne&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:45:44.146; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Hammwöhner&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:45:44.249; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Hammw�hner&qt=/keks&start=0&wt=javabin&version=2} hits=61 status=0 QTime=10 
+INFO  - 2014-08-26 16:51:02.908; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:51:04.161; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:51:05.913; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Hammwöhner&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:51:08.524; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=R&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:51:08.709; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Ra&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:51:09.504; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Rai&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:51:10.587; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Ra&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:51:10.748; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=R&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:51:10.882; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:51:11.450; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=H&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:51:11.682; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Ha&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:51:11.800; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Ham&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:51:11.935; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Hamm&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:51:12.788; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Hammw&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:51:13.042; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Hammwö&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:51:13.385; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Hammw&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:51:13.620; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Hamm&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:51:13.762; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Ham&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:51:13.921; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Ha&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:51:14.325; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Ham&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:51:15.188; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Hamm&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:51:15.889; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Ham&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:51:16.388; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Ha&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:51:16.430; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=H&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:51:16.455; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:51:24.447; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=R&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:51:24.776; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Ra&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:51:25.202; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Rai&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:51:25.639; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Rain&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:51:25.745; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Raine&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:51:25.810; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Rainer&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:51:25.937; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Rainer+&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=18 
+INFO  - 2014-08-26 16:51:26.121; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Rainer+H&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:51:27.922; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Rainer+&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:51:28.422; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Rainer&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:51:28.467; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Raine&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:51:28.488; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Rain&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:51:28.520; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Rai&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:51:28.554; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Ra&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:51:28.587; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=R&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:51:28.619; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:53:07.808; org.apache.solr.request.UnInvertedField; UnInverted multi-valued field {field=content,memSize=4905955,tindexSize=45947,time=1205,phase1=1192,nTerms=302644,bigTerms=501,termInstances=2146530,uses=0}
+INFO  - 2014-08-26 16:53:07.835; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/select params={q=*:*&facet.field=content&facet=true&wt=json} hits=13265 status=0 QTime=1273 
+INFO  - 2014-08-26 16:55:45.227; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:55:47.816; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=P&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:55:48.030; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Pi&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:55:48.188; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Pik&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:55:48.321; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Pika&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:55:48.419; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Pikac&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:55:48.532; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Pikach&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:55:48.685; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=Pikachu&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:55:48.875; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=Pikachu&qt=/keks&start=0&wt=javabin&version=2} hits=0 status=0 QTime=3 
+INFO  - 2014-08-26 16:55:50.401; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:55:50.550; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:55:50.702; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:55:53.539; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:00.574; org.apache.solr.core.SolrCore; [test1] webapp=/solr path=/keks params={q=rgnsburg} hits=0 status=0 QTime=6 
+INFO  - 2014-08-26 16:56:16.685; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=r&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:16.881; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=rg&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:17.103; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=rgb&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:56:17.252; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=rgbs&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:17.368; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=rgbsn&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:18.118; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=rgbs&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:18.246; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=rgb&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:18.478; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=rgbn&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:18.513; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=rgbns&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:18.665; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=rgbnsb&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:18.835; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=rgbnsbu&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:18.899; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=rgbnsbur&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:19.046; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=rgbnsburg&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:19.128; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=rgbnsburg&qt=/keks&start=0&wt=javabin&version=2} hits=0 status=0 QTime=1 
+INFO  - 2014-08-26 16:56:43.570; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:43.717; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:43.885; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:54.025; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=f&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:54.170; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=fl&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:56:54.387; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=flr&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:54.400; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=flro&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:54.828; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=flr&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:54.947; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=fl&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:55.016; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=flo&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:55.178; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=flor&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:55.259; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=flori&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:55.357; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=floria&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:55.449; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=florian&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:56:55.525; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=florian+&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=1 
+INFO  - 2014-08-26 16:56:55.626; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=florian+m&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:55.680; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=florian+me&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:55.793; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=florian+mei&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:55.857; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=florian+meie&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:55.929; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=florian+meier&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 16:56:56.023; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=florian+meier&qt=/keks&start=0&wt=javabin&version=2} hits=74 status=0 QTime=13 
+INFO  - 2014-08-26 17:00:08.782; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=florian+meier&qt=/keks&start=10&wt=javabin&version=2} hits=74 status=0 QTime=6 
+INFO  - 2014-08-26 17:00:12.762; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=florian+meier&qt=/keks&start=0&wt=javabin&version=2} hits=74 status=0 QTime=9 
+INFO  - 2014-08-26 17:01:52.283; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=florian+meier&qt=/keks&start=0&wt=javabin&version=2} hits=74 status=0 QTime=7 
+INFO  - 2014-08-26 17:02:04.365; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=g&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 17:02:04.593; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=gr&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 17:02:04.824; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=gri&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 17:02:05.037; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=grip&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 17:02:05.129; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/suggest_phrase params={q=grips&qt=/suggest_phrase&wt=javabin&version=2} status=0 QTime=0 
+INFO  - 2014-08-26 17:02:05.359; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=16 
+INFO  - 2014-08-26 17:02:56.237; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=8 
+INFO  - 2014-08-26 17:04:13.805; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=8 
+INFO  - 2014-08-26 17:04:14.587; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=8 
+INFO  - 2014-08-26 17:05:04.357; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=8 
+INFO  - 2014-08-26 17:07:46.596; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=7 
+INFO  - 2014-08-26 17:08:01.542; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=8 
+INFO  - 2014-08-26 17:08:03.723; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=8 
+INFO  - 2014-08-26 17:08:17.704; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=7 
+INFO  - 2014-08-26 17:09:32.436; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=7 
+INFO  - 2014-08-26 17:10:10.889; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=7 
+INFO  - 2014-08-26 17:10:11.690; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=9 
+INFO  - 2014-08-26 17:10:30.287; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=9 
+INFO  - 2014-08-26 17:10:44.969; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=11 
+INFO  - 2014-08-26 17:11:51.800; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=7 
+INFO  - 2014-08-26 17:12:35.918; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=7 
+INFO  - 2014-08-26 17:12:48.203; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=8 
+INFO  - 2014-08-26 17:13:06.846; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=8 
+INFO  - 2014-08-26 17:13:16.448; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=8 
+INFO  - 2014-08-26 17:13:17.410; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=8 
+INFO  - 2014-08-26 17:13:31.960; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=7 
+INFO  - 2014-08-26 17:13:32.718; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=8 
+INFO  - 2014-08-26 17:13:50.425; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=12 
+INFO  - 2014-08-26 17:14:13.029; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=8 
+INFO  - 2014-08-26 17:14:16.484; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=8 
+INFO  - 2014-08-26 17:14:17.458; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=8 
+INFO  - 2014-08-26 17:14:20.381; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=8 
+INFO  - 2014-08-26 17:17:58.198; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=11 
+INFO  - 2014-08-26 17:18:04.558; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=7 
+INFO  - 2014-08-26 17:18:46.582; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=10 
+INFO  - 2014-08-26 17:18:47.302; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=8 
+INFO  - 2014-08-26 17:18:47.884; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=11 
+INFO  - 2014-08-26 17:18:51.260; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=7 
+INFO  - 2014-08-26 17:18:58.974; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=8 
+INFO  - 2014-08-26 17:19:32.870; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=7 
+INFO  - 2014-08-26 17:20:20.093; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=12 
+INFO  - 2014-08-26 17:21:03.045; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=8 
+INFO  - 2014-08-26 17:22:15.334; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=7 
+INFO  - 2014-08-26 17:23:37.094; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=8 
+INFO  - 2014-08-26 17:23:54.310; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=7 
+INFO  - 2014-08-26 17:23:55.403; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=7 
+INFO  - 2014-08-26 17:24:10.031; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=7 
+INFO  - 2014-08-26 17:24:11.338; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=13 
+INFO  - 2014-08-26 17:25:15.628; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=8 
+INFO  - 2014-08-26 17:26:34.360; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=8 
+INFO  - 2014-08-26 17:26:49.237; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=6 
+INFO  - 2014-08-26 17:27:02.854; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=7 
+INFO  - 2014-08-26 17:27:15.055; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=7 
+INFO  - 2014-08-26 17:28:15.061; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=7 
+INFO  - 2014-08-26 17:29:07.490; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=7 
+INFO  - 2014-08-26 17:29:08.903; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=8 
+INFO  - 2014-08-26 17:29:09.527; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=8 
+INFO  - 2014-08-26 17:29:53.801; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=7 
+INFO  - 2014-08-26 17:30:25.659; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=10 
+INFO  - 2014-08-26 17:30:38.487; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=7 
+INFO  - 2014-08-26 17:30:46.998; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=8 
+INFO  - 2014-08-26 17:30:58.746; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=grips&qt=/keks&start=0&wt=javabin&version=2} hits=390 status=0 QTime=9 
+INFO  - 2014-08-26 17:31:24.073; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=florian+meier&qt=/keks&start=0&wt=javabin&version=2} hits=74 status=0 QTime=9 
+INFO  - 2014-08-26 17:31:58.466; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=florian+meier&qt=/keks&start=0&wt=javabin&version=2} hits=74 status=0 QTime=7 
+INFO  - 2014-08-26 17:33:07.100; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=florian+meier&qt=/keks&start=0&wt=javabin&version=2} hits=74 status=0 QTime=7 
+INFO  - 2014-08-26 17:33:17.017; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=florian+meier&qt=/keks&start=0&wt=javabin&version=2} hits=74 status=0 QTime=7 
+INFO  - 2014-08-26 17:33:25.657; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=florian+meier&qt=/keks&start=0&wt=javabin&version=2} hits=74 status=0 QTime=7 
+INFO  - 2014-08-26 17:33:39.768; org.apache.solr.core.SolrCore; [collection1] webapp=/solr path=/keks params={q=florian+meier&qt=/keks&start=0&wt=javabin&version=2} hits=74 status=0 QTime=7 

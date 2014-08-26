@@ -1,3 +1,9 @@
+#head img {
+	margin-left: 50px;
+	margin-top: 20px;
+	height: 100px;
+}
+
 #quicklinks {
   position: absolute;
   top: 0;
@@ -5,13 +11,18 @@
   padding: 5px;
   padding-top: 20px;
   height: 85px;
-  width: 436px;
+  width: 518px;
+  float: left;
 }
 
 #quicklinks, div#pagination, #search {
-  margin-left: 210px;
+  margin-left: 260px;
   padding: 5px;
 
+}
+
+#quicklinks {
+	margin-left: 260px;
 }
 
 #quicklinks ul {
@@ -29,6 +40,38 @@
 #quicklinks ul li a {
   color: white;
   font-size: 13px;
+}
+
+#impressum {
+	position: absolute;
+	  top: 0;
+	  background-color: #bfbfbf;
+	  padding: 5px;
+	  padding-top: 20px;
+	  left: 788px;
+	  height: 70px;
+	  float: left;
+	  
+	  width: 278px;
+}
+
+#impressum ul li a {
+	color: white;
+	display: inline-block;
+	margin-right: 13px;
+	float: left;
+	font-size: 13px;
+	text-transform: uppercase;
+	margin-top: -15px;
+}
+
+#impressum ul li {
+	list-style-type: none;
+}
+
+#impressum ul {
+	
+	padding-left: 0;
 }
 
 
@@ -65,20 +108,31 @@ form#quicksearch-form {
 }
 
 div#results {
-	margin-top: 20px;
-	border-top: dashed 1px #666666;
+	margin-top: 20px; 	
+}
+
+.result-list-wrapper {
+  padding: 0;
+  margin: 0;
+  padding-top: 20px;
+  
+  width: 1080px;
+  border-top: solid 1px #666666;
 }
 
 .result-list {
-  width: 650px;
+  width: 537px;
   list-style-type: none;
   
-  margin-left: 210px;
-  padding-left: 0;
+  margin-left: 170px;
+  padding-left: 40px;
   
   padding-right: 40px;
   
-  border-right: dashed 1px #666666;
+  margin-top: -20px;
+  
+  border-left: solid 1px #666666;
+  border-right: solid 1px #666666;
 }
 
 .result-list li {
@@ -94,7 +148,7 @@ div#results {
 }
 
 h3.result-title {
-	font-weight: normal;
+	font-weight: bold;
 }
 
 .result-title a {
