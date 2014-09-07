@@ -1,0 +1,514 @@
+/*
+ * jQuery UI CSS Framework 1.8.18
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Theming/API
+ */
+
+/* Layout helpers
+----------------------------------*/
+.ui-helper-hidden { display: none; }
+.ui-helper-hidden-accessible { position: absolute !important; clip: rect(1px 1px 1px 1px); clip: rect(1px,1px,1px,1px); }
+.ui-helper-reset { margin: 0; padding: 0; border: 0; outline: 0; line-height: 1.3; text-decoration: none; font-size: 100%; list-style: none; }
+.ui-helper-clearfix:before, .ui-helper-clearfix:after { content: ""; display: table; }
+.ui-helper-clearfix:after { clear: both; }
+.ui-helper-clearfix { zoom: 1; }
+.ui-helper-zfix { width: 100%; height: 100%; top: 0; left: 0; position: absolute; opacity: 0; filter:Alpha(Opacity=0); }
+
+/* Interaction Cues
+----------------------------------*/
+.ui-state-disabled { cursor: default !important; }
+
+/* Icons
+----------------------------------*/
+.ui-icon { display: block; text-indent: -99999px; overflow: hidden; background-repeat: no-repeat; width: 12px; height: 11px; }
+
+/* Component containers
+----------------------------------*/
+.ui-widget-content { border: 1px solid #8e8e8d; background-color: #ffffff;}
+.ui-widget-header { border-bottom: 1px solid #d9d9d9; font-weight: bold; text-transform: uppercase;}
+
+/* Interaction states
+----------------------------------*/
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { background-color: #fff; font-weight: normal; color: #000; }
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited { color: #555555; text-decoration: none; }
+.ui-widget :active { outline: none; }
+
+/* Interaction Cues
+----------------------------------*/
+.ui-datepicker-today .ui-state-default { background-color: #BFBFBF; color: #000; }
+.ui-datepicker-calendar .ui-state-hover, .ui-datepicker-calendar .ui-state-focus { background-color: #BFBFBF; color: #000; }
+.ui-datepicker-current-day .ui-state-active { background-color: #8e8e8d; color: #fff; }
+.not-really-active .ui-state-active { background-color: #fff; color: #000; }
+.not-really-active .ui-state-active.ui-state-highlight  { background-color: #BFBFBF; color: #000; }
+.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled { color: #ddd; }
+
+
+/*
+ * jQuery UI Datepicker 1.8.18
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Datepicker#theming
+ */
+div.left div.article .ui-datepicker,
+.start .ui-datepicker {
+	width: 190px;
+	display: none;
+}
+
+div.left div.article .ui-datepicker .ui-datepicker-header,
+.start .ui-datepicker .ui-datepicker-header {
+	position:relative;
+	padding: 4px 0 3px;
+	height: 20px;
+}
+
+div.left div.article .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next,
+.start .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
+	position: absolute;
+	top: 4px;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+
+div.left div.article .ui-datepicker .ui-datepicker-prev,
+.start .ui-datepicker-prev {
+	left:2px;
+}
+
+div.left div.article .ui-datepicker .ui-datepicker-next,
+.start .ui-datepicker .ui-datepicker-next {
+	right:2px;
+}
+
+div.left div.article .ui-datepicker .ui-datepicker-prev span, div.left div.article .ui-datepicker .ui-datepicker-next span,
+.start .ui-datepicker .ui-datepicker-prev span, .start .ui-datepicker .ui-datepicker-next span {
+	display: block;
+	position: absolute;
+	left: 50%;
+	margin-left: -6px;
+	top: 50%;
+	margin-top: -6px;
+	background-image: url(/res/pics/calendar_arrows.png);
+	width: 12px;
+	height: 11px;
+	font-size: 11px;
+	line-height: 1;
+}
+
+div.left div.article .ui-datepicker .ui-datepicker-prev span,
+.start .ui-datepicker .ui-datepicker-prev span {
+	background-position: 0 0;
+}
+
+div.left div.article .ui-datepicker .ui-datepicker-next span,
+.start .ui-datepicker .ui-datepicker-next span {
+	background-position: 0 100%;
+}
+
+div.left div.article .ui-datepicker .ui-datepicker-title,
+.start .ui-datepicker .ui-datepicker-title {
+	margin: 0 2.3em;
+	line-height: 1.8em;
+	text-align: center;
+	font-size: 10px;
+}
+
+div.left div.article .ui-datepicker .ui-datepicker-title select,
+.start .ui-datepicker .ui-datepicker-title select {
+	font-size:1em;
+	margin:1px 0;
+}
+
+div.left div.article .ui-datepicker select.ui-datepicker-month-year,
+.start .ui-datepicker select.ui-datepicker-month-year {
+	width: 100%;
+}
+
+div.left div.article .ui-datepicker select.ui-datepicker-month, div.left div.article .ui-datepicker select.ui-datepicker-year,
+.start .ui-datepicker select.ui-datepicker-month, .start .ui-datepicker select.ui-datepicker-year {
+	width: 49%;
+}
+
+div.container div.left div.article .ui-datepicker table,
+.start .ui-datepicker table {
+	width: 182px;
+	font-size: 11px;
+	background-color: #ddd;
+	border-spacing: 1px;
+	border: 3px solid #ddd;
+	margin: 4px;
+	border-collapse:collapse;
+}
+
+div.left div.article .ui-datepicker th,
+.start .ui-datepicker th {
+	padding: .1em .3em .5em;
+	text-align: center;
+	font-weight: normal;
+	border: 0;
+	text-transform: uppercase;
+}
+
+div.container div.left div.article .ui-datepicker table td,
+.start .ui-datepicker table td {
+	border: 0;
+	padding: 0;
+	width: 26px;
+}
+
+div.container div.left div.article .ui-datepicker td span, div.container div.left div.article .ui-datepicker td a,
+.start .ui-datepicker td span, .start .ui-datepicker td a {
+	display: block;
+	padding: .2em;
+	text-align: center;
+	text-decoration: none;
+}
+
+div.left div.article .ui-datepicker td.ui-datepicker-unselectable span, div.left div.article .ui-datepicker td.ui-datepicker-unselectable a,
+.start .ui-datepicker td.ui-datepicker-unselectable span, .start .ui-datepicker td.ui-datepicker-unselectable a{
+	color: #aaa;
+}
+
+div.left div.article .ui-datepicker .ui-datepicker-buttonpane,
+.start .ui-datepicker .ui-datepicker-buttonpane{
+	background-image: none;
+	margin: .7em 0 0 0;
+	padding:0 .2em;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 0;
+}
+
+div.left div.article .ui-datepicker .ui-datepicker-buttonpane button,
+.start .ui-datepicker .ui-datepicker-buttonpane button {
+	float: right;
+	margin: .5em .2em .4em;
+	cursor: pointer;
+	padding: .2em .6em .3em .6em;
+	width:auto;
+	overflow:visible;
+}
+
+div.left div.article .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current,
+.start .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
+	float:left;
+}
+
+div.left div.article .ui-datepicker tr,
+.start .ui-datepicker tr {
+	background:none;
+}
+
+div.left div.article .ui-datepicker td.ui-datepicker-week-end a,
+.start .ui-datepicker td.ui-datepicker-week-end a {
+	color: #E00000;
+}
+
+div.left div.article .ui-datepicker td.ui-datepicker-week-end a.ui-state-active,
+.start .ui-datepicker td.ui-datepicker-week-end a.ui-state-active {
+	color: #ffffff;
+}
+
+div.left div.article .ui-datepicker td.ui-datepicker-week-end.ui-state-disabled span,
+.start .ui-datepicker td.ui-datepicker-week-end.ui-state-disabled span {
+	color: #f47a7a;
+}
+
+div.container div.left div.article .ui-datepicker table tr,
+.start .ui-datepicker table tr {
+	background: none;
+}
+
+/*eds: Kalender-Optionen erweitert*/
+div.left div.article div.box {
+	box-shadow:none;
+}
+
+div.left div.article div#calendar_box {
+	background:url("../pics/punktmuster.png") repeat scroll 0 0 #FFFFFF;
+	padding:1px;
+	float:left;
+	margin-bottom:8px;
+	display:none;
+}
+
+div.left div.article div#calendar_box div {
+	float:left;
+	cursor:pointer;
+	padding:9px 40px 9px 9px;
+	background:url("/res/pics/pfeil_rechts.png") no-repeat scroll 170px 14px #FFFFFF;
+	width:160px;
+	height:35px;
+}
+
+div.left div.article div#calendar_box:hover {
+	background-color:#000000;
+}
+
+div.left div.article div#calendar_box div.active {
+	background-image:url("/res/pics/pfeil_unten.png");
+}
+
+div.left div.article div#calendar_box div span {
+	display:block;
+}
+
+div.left div.article div#calendar_box div span.label {
+	font-weight:bold;
+}
+
+
+div.left div.article div#calendar_box div p {
+	float:right;
+	margin-bottom:0px;
+}
+
+div.left div.article div#datepicker {
+	margin-top:-5px;
+	display:block;
+	margin-bottom:0;
+}
+
+div#datepicker.dropdown-menu {
+	position:static;
+	float:none;
+	z-index:9;
+}
+
+div.left div.article div#datepicker form {
+	padding-left:0px;
+	margin:0px;
+}
+
+div.left div.article div#datepicker form label{
+	display:inline-block;
+}
+
+div.left div.article div#datepicker form label.form_end {
+	margin-left:8px;
+}
+
+div.left div.article div#datepicker form .form_start,
+div.left div.article div#datepicker form .form_end {
+	margin-top:10px;
+	margin-bottom:4px;
+}
+
+div.left div.article div#datepicker form input.form_start,
+div.left div.article div#datepicker form input.form_end {
+	height:17px;
+}
+
+div.left div.article div#datepicker input.send_button {
+	width:99px;
+}
+
+div.left div.article div#datepicker form input.send_button {
+	margin-left:8px;
+	margin-top:-4px;
+}
+
+div.left div.article div#datepicker div#datpicker_select {
+	float:left;
+	width:20%;
+	margin-left:4px;
+	display:none;
+}
+
+div.left div.article div#datepicker div#datpicker_select input {
+	margin-top:10px;
+	cursor:pointer;
+}
+
+div.left div.article div#datepicker div#datpicker_select input {
+	border:0px;
+}
+
+div.left div.article div#datepicker div#datpicker_select input#radio_default {
+	margin-top:0px;
+}
+
+div.left div.article div#datepicker div#datpicker_select label {
+	cursor:pointer;
+}
+
+div.left div.article div#datepicker div#datepicker_start {
+	float:right;
+	margin-right:190px;
+	margin-bottom:10px;
+	width:40%;
+}
+
+div.left div.article div#datepicker div#datepicker_end {
+	float:right;
+	margin-right:-6px;
+	margin-left:-197px;
+	width:40%;
+}
+
+div.left div.article div#taginfo {
+	width:100%;
+	margin-bottom:6px;
+	margin-top:0px;
+	float:right;
+}
+
+div.left div.article div#taginfo a {
+	display:inline-block;
+}
+
+div.left div.article div#datepicker-no-js {
+	float:right;
+	vertical-align:middle;
+	padding-top:14px;
+	margin-right:75px;
+}
+
+/*eds: Mit RSS-Feed erweitert*/
+div.article p#rss_logo {
+	margin-bottom:2px;
+}
+
+div.article a img.calendar_rss_logo {
+	float:right;
+	width:23px;
+	height:23px;
+}
+
+div.article p#rss_logo img {
+	width:23px;
+	height:23px;
+}
+
+div.article p#rss_logo span {
+	margin-left:4px;
+}
+
+div.article div#rss_links {
+	width:100%;
+}
+
+div.article div#rss_links a {
+	display:inline;
+	margin-right:4px;
+}
+
+
+/******************************************************************
+@author	Stephan Ederer, eds19957
+
+@description	Styles für Kalender auf Startseite der UR
+*******************************************************************/
+.start div#datepicker {
+	margin: 0 0 14px 0;
+	padding: 1px;
+	background: url(../pics/punktmuster.png) repeat scroll 0 0 #FFFFFF;
+	box-shadow: 2px 2px 5px #BFBFBF;
+}
+
+.start div#datepicker:hover {
+	background-color: #000000;
+}
+
+.start div#datepicker form .form_start {
+	height:20px;
+	width:156px;
+	margin-top:5px;
+}
+
+.start div#datepicker input.send_button {
+	width:73px;
+	height:24px;
+	border:none;
+	font-size:9pt;
+	line-height:normal;
+	text-align: left;
+	cursor: pointer;
+	background:url(../pics/pfeil_rechts_klein.png) no-repeat scroll 57px 0 #FFFFFF
+}
+
+.start div#datepicker form input.send_button:hover {
+	text-decoration: underline;
+}
+
+.start .ui-datepicker {
+	width: 245px;
+}
+
+.start .ui-datepicker .ui-datepicker-header {
+	height: 30px;
+	border-bottom: none;
+	text-transform: none;
+	overflow: hidden;
+}
+
+.start .ui-datepicker .ui-datepicker-title {
+	font-size: 15px;
+}
+
+.start .ui-datepicker table {
+	width: 232px;
+}
+
+.start .ui-datepicker table {
+	margin: 6px 7px;
+}
+
+.start .ui-datepicker table td {
+	width: 26px; height: 26px;
+}
+
+.start .ui-datepicker table td span,
+.start .ui-datepicker table td a {
+	padding: .5em;
+}
+
+.start .ui-datepicker-current-day .ui-state-active {
+	background-color: #1D3F4B;
+}
+
+.start .ui-widget-content {
+	border: none;
+}
+
+
+.start .ui-datepicker .ui-datepicker-next span {
+	background-image: url(../pics/pfeil_rechts_klein.png);
+	height: 18px;
+	width: 18px;
+	left: 6px;
+	margin-left:0;
+}
+
+.start .ui-datepicker .ui-datepicker-prev span {
+	background-image: url(../pics/pfeil_links_klein.png);
+	height: 18px;
+	width: 18px;
+	left: -4px;
+	margin-left:0;
+}
+
+.start div#datepicker a#datepickerLink {
+	cursor:pointer;
+	position:absolute;
+	height:100%;
+	width:100%;
+	top:0;
+}
+
+.start div#datepicker div.box {
+	margin-bottom: 0;
+}
+
+/******************************************************************
+ENDE:	Styles für Kalender auf Startseite der UR
+*******************************************************************/
+

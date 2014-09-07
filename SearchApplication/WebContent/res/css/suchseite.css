@@ -76,21 +76,19 @@
 
 
 #search {
-	margin-top: 40px;
 	
 	min-width: 400px;
-	margin-bottom: 20px;
 }	
 
 
 #search div.input-container {
 	float: left;
-	width: 400px;
+	width: 466px;
 }
 
 form#quicksearch-form {
 	
-	margin-bottom: 35px;
+	margin-bottom: 15px;
 }
 
 #search div.input-container input {
@@ -101,10 +99,19 @@ form#quicksearch-form {
 	font-size: 18px;
 }
 
+#search p {
+	font-size: 12px;
+	margin-top: 45px;
+	
+	color: #999999;
+	clear: both;
+}
+
 .quicksearch-submit{
 	height: 36px;
 	padding-left: 7px;
 	padding-right: 7px;
+	position: absolute;
 }
 
 div#results {
@@ -118,6 +125,8 @@ div#results {
   
   width: 1080px;
   border-top: solid 1px #666666;
+  float: left;
+  margin-right: -250px;
 }
 
 .result-list {
@@ -186,8 +195,47 @@ h3.result-title {
   overflow: hidden;
 }
 
+#suggestions {
+	margin-top: 36px;
+	position: relative;
+	display: inline-block;
+	max-width: 250px;
+	position: absolute;
+}
+
+#suggestions h3 {
+	font-size: 15px;
+	margin: 0;
+}
+
+#suggestions ul {
+	padding-left: 20px;
+}
+
+#suggestions ul li {
+	font-size: 13px;
+	padding: 5px;
+}
+
+#tagCloud {
+	margin-top: 36px;
+	position: relative;
+	display: inline-block;
+	max-width: 350px;
+	min-width: 250px;
+	width: auto;
+	position: absolute;
+	background-color: #ccc;
+}
+
+#tagCloud span {
+	display: inline-block;
+	margin: 5px;
+}
+
 div#pagination {
   margin-bottom: 100px;
+  clear: both;
 }
 
 div #pagination a {
@@ -198,4 +246,29 @@ div #pagination a {
 
 div #pagination a.active {
   font-weight: bold;
+}
+
+
+
+#previewFrame {
+	position: absolute;
+	top: 220px;
+	left: 1100px;
+	width: 30%;
+	height: 500px;
+	max-width: 600px;
+	
+	background-color: #eeeeee;	
+}
+
+#previewFrame.hidden {
+	display: none;
+	visibility: hidden;
+}
+
+@media (min-width: 1100px) and (max-width: 1500px) {
+	#previewFrame {
+		left: 800px;
+		width: 30%;
+	}
 }
