@@ -165,7 +165,7 @@ public class AjaxServerTest extends HttpServlet{
 		tagCloud +="<aside id='tagCloud'>";
 		
 		for(int i = 0; i < maxTagCount; i++) {
-			double fontSize = Math.pow(tags.get(i).score/maxScore, 4)*26;
+			double fontSize = Math.pow(tags.get(i).score/maxScore, 2)*26;
 			if(fontSize < 7) fontSize = 7;
 			tagCloud += "<span style='font-size: " + 
 		 fontSize + "pt;'><a href='suche?q=" + tags.get(i).name + "'>" 

@@ -1,5 +1,6 @@
 package solr;
 
+import java.awt.datatransfer.UnsupportedFlavorException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -86,7 +87,7 @@ public class SolrJConnection {
 			
 			results = new String[queryResults.size()][4];
 			
-			obj.tagCloud = getFacetData(response);
+			obj.tagCloud = getFacetData(response, query);
 
 			Map<String, Map<String, List<String>>> highlights = response.getHighlighting();
 			
@@ -132,7 +133,7 @@ public class SolrJConnection {
 		return obj;
 	}
 	
-	private ArrayList<TagcloudSuggestion> getFacetData(QueryResponse response) {		
+	private ArrayList<TagcloudSuggestion> getFacetData(QueryResponse response, String query) {		
 		HashMap<String, Double> currentFacets = new HashMap<String, Double>();
 		
 		for(int i = 0; i < response.getFacetFields().size(); i++) {
@@ -146,7 +147,8 @@ public class SolrJConnection {
 		
 		for (Entry<String, Double> entry : currentFacets.entrySet()) {
 			if(!totalFacets.containsKey(entry.getKey())) continue;
-			double value = (entry.getValue() *2)  * (totalFacets.get(entry.getKey())*0.8);
+			if(query.contains(entry.getKey())) continue;
+			double value = (entry.getValue())  * (totalFacets.get(entry.getKey()));
 			suggestions.add(new TagcloudSuggestion(entry.getKey(), value));
 		}
 		
@@ -169,8 +171,18 @@ public class SolrJConnection {
 			
 			for(int i = 0; i < response.getFacetFields().size(); i++) {
 				for(int j = 0; j < response.getFacetFields().get(i).getValueCount(); j++) {
-					totalFacets.put(response.getFacetFields().get(i).getValues().get(j).getName(), 
-							1.0 - ((double) response.getFacetFields().get(i).getValues().get(j).getCount())/totalDocumentCount);
+					long currentCount = response.getFacetFields().get(i).getValues().get(j).getCount();
+					String currentName = response.getFacetFields().get(i).getValues().get(j).getName();
+					if(currentCount < 4 || currentCount > 300) continue;
+					try {
+						int t = Integer.parseInt(currentName);
+						double d = Double.parseDouble(currentName);
+					} catch(Exception e) {
+						if(currentName.length() <= 3) continue;
+						totalFacets.put(currentName, 
+								1.0-Math.log1p((double) (currentCount-3.0))/totalDocumentCount); 
+						if(j%100==0)System.out.println(currentCount+ "    " + ( 1.0-Math.log1p((double) (currentCount-3.0))/totalDocumentCount));
+					}
 				}
 			}
 			

@@ -226,6 +226,7 @@ h3.result-title {
 	width: auto;
 	position: absolute;
 	background-color: #ccc;
+	padding: 20px;
 }
 
 #tagCloud span {

@@ -67,7 +67,14 @@
 
             </analyzer>
         </fieldType>
-
+        
+        <fieldType name="suggest_phrase_biword" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory" />
+                <filter class="solr.ShingleFilterFactory" maxShingleSize="2" outputUnigrams="true"/>
+            </analyzer>
+        </fieldType>
     </types>
     <fields>
         <field name="id" type="string" stored="true" indexed="true"/>
