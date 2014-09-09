@@ -42,16 +42,7 @@
             positionIncrementGap="100">
             <analyzer>
                 <tokenizer class="solr.WhitespaceTokenizerFactory"/>
-                <filter class="solr.StopFilterFactory"
-                    ignoreCase="true" words="stopwords.txt"/>
-                <filter class="solr.WordDelimiterFilterFactory"
-                    generateWordParts="1" generateNumberParts="1"
-                    catenateWords="1" catenateNumbers="1" catenateAll="0"
-                    splitOnCaseChange="1"/>
                 <filter class="solr.LowerCaseFilterFactory"/>
-               <!-- <filter class="solr.EnglishPorterFilterFactory"
-                    protected="protwords.txt"/> -->
-                <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
             </analyzer>
         </fieldType>
         <fieldType name="url" class="solr.TextField"
@@ -127,9 +118,17 @@
             indexed="true"/>
 
             <!-- PinkiePie -->
-            <field name="suggest_phrase" type="suggest_phrase" indexed="true" stored="false" multiValued="false" />
+            <field name="suggest_phrase" type="suggest_phrase" indexed="true" stored="false" multiValued="true" />
+            <field name="suggest_phrase_biword" type="suggest_phrase_biword" indexed="true" stored="false" multiValued="true" />
 
+            <field name="suggest_phrase_alltogether" type="string" indexed="true" stored="true" multiValued="true" />
+
+            <copyField source="title" dest="suggest_phrase" maxChars="30000" />
+            <copyField source="title" dest="suggest_phrase_biword" maxChars="30000" />
             <copyField source="content" dest="suggest_phrase" maxChars="30000" />
+            <copyField source="content" dest="suggest_phrase_biword" maxChars="30000" />
+            <copyField source="suggest_phrase" dest="suggest_phrase_alltogether" />
+            <copyField source="suggest_phrase_biword" dest="suggest_phrase_alltogether" />
 
         <!-- fields for creativecommons plugin -->
         <field name="cc" type="string" stored="true" indexed="true"
