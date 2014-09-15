@@ -28,7 +28,7 @@ public class AjaxServerTest extends HttpServlet{
 	
 	private SolrJConnection connect;
 	
-	private boolean tagCloud = true; 
+	private boolean tagCloud = false; 
 	
 	public AjaxServerTest() {
 		super();
@@ -183,6 +183,7 @@ public class AjaxServerTest extends HttpServlet{
 	private String writeTagcloud(List<TagcloudSuggestion> tags) {
 		Random r = new Random();
 		String tagCloud = "";
+		if(tags.size() == 0) return "";
 		double maxScore = tags.get(0).score;
 		int maxTagCount = tags.size() > 50? 50 : tags.size();
 		tags = (List<TagcloudSuggestion>) tags.subList(0, maxTagCount);

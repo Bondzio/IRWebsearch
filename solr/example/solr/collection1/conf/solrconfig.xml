@@ -1027,7 +1027,7 @@
        <!-- Query settings -->
        <str name="defType">edismax</str>
        <str name="qf">
-          content^3.0 title^31.0 url^21.0 important^16.0
+          content^3.0 content_loose^0.5 title^31.0 url^21.0 important^16.0
        </str>
        <str name="df">content</str>
        <str name="mm">2&lt;-50%</str>

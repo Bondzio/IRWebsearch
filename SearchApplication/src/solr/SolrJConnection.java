@@ -92,7 +92,7 @@ public class SolrJConnection {
 		params.set("start", (page-1)*10);
 		params.set("q", query);
 		if(tagCloud) {
-			params.set("facet.limit", -1);
+			params.set("facet.limit", 1000);
 		} else {
 			params.set("facet.limit", 0);
 		}
@@ -101,6 +101,11 @@ public class SolrJConnection {
 		try {
 			QueryResponse response = server.query(params);
 			SolrDocumentList queryResults = response.getResults();
+			if(query.contains(" ") && queryResults.size() <= 5) {
+				params.set("mm", "0%"); 
+				response = server.query(params);
+				queryResults = response.getResults();
+			}
 			 
 			obj.numResults = (int) queryResults.getNumFound();
 			if(tagCloud)obj.tagCloud = getFacetData(response, query);
