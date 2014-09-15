@@ -10,6 +10,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import solr.SolrJConnection;
 import solr.SolrJConnection.ResultsObject;
+import solr.SpellcheckSuggestion;
 
 
 public class AjaxServerTest extends HttpServlet{
@@ -26,14 +28,17 @@ public class AjaxServerTest extends HttpServlet{
 	
 	private SolrJConnection connect;
 	
-	private boolean tagCloud = true;
+	private boolean tagCloud = false;
 	
 	public AjaxServerTest() {
 		super();
-	}
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		connect = new SolrJConnection();
+		connect.buildSpellcheck();
+		if(tagCloud) connect.initFacets();
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if(connect == null) connect = new SolrJConnection();
         
 		if(request.getRequestURI().equals("/IRWebsearch/WebAppTest/suche")) {
 			showResults(request, response);
@@ -58,16 +63,31 @@ public class AjaxServerTest extends HttpServlet{
 		ResultsObject obj;
 		
 		if(page != null) {
-			obj = connect.getResultsForQuery(query, Integer.parseInt(page));
+			obj = connect.getResultsForQuery(query, Integer.parseInt(page), tagCloud);
 		} else {
-			obj = connect.getResultsForQuery(query);	
+			obj = connect.getResultsForQuery(query, tagCloud);	
 		}
 		
-		writeResults(obj, out, htmlPage, page, query, request.getCookies());
+		if(obj.actualResults.length == 0 && obj.spellcheck.size() == 0) {
+			writeNoResultsPage(htmlPage, out);
+			return;
+		}
 		
+		if(obj.actualResults.length <= 4 && obj.spellcheck.size() != 0 && obj.spellcheck.get(0).count >= 10) {
+			String newQuery = obj.spellcheck.get(0).suggestion; 
+			if(page != null) {
+				obj = connect.getResultsForQuery(newQuery, Integer.parseInt(page), tagCloud);
+			} else {
+				obj = connect.getResultsForQuery(newQuery, tagCloud);
+			}
+			writeSERP(obj, out, htmlPage, page, newQuery, request.getCookies());
+			return;
+		}
+		
+		writeSERP(obj, out, htmlPage, page, query, request.getCookies());
 	}
 	
-	private void writeResults(ResultsObject obj, PrintWriter out, String htmlPage, String page, String query, Cookie[] recentSearches) {
+	private void writeSERP(ResultsObject obj, PrintWriter out, String htmlPage, String page, String query, Cookie[] recentSearches) {
 		// Write Everything up to (including) filters
 		int index = htmlPage.indexOf("<!-- BREAKPOINT: FILTERS -->");
 		int nextIndex = htmlPage.indexOf("<!-- BREAKPOINT: RESULTS -->");
@@ -76,7 +96,7 @@ public class AjaxServerTest extends HttpServlet{
 				
 		// Write Everything up to (including) results
 		out.write(htmlPage.substring(index, nextIndex));
-		out.write(writeResults(obj.actualResults));
+		out.write(writeResults(obj.actualResults, obj.spellcheck));
 		index = nextIndex;
 		nextIndex = htmlPage.indexOf("<!-- BREAKPOINT: OTHER TOPICS -->");
 
@@ -108,12 +128,18 @@ public class AjaxServerTest extends HttpServlet{
 		return "<p>"+ numResults + " Ergebnisse</p>";
 	}
 	
-	private String writeResults(String[][] results) {
-		return getFormattedResults(results);
-	}
-	
-	private String writeRelatedQueries(String[] relatedQueries) {
-		return "";
+	private String writeResults(String[][] results, ArrayList<SpellcheckSuggestion> spellcheck) {
+		String resultsText = "";
+		
+		for(int i = 0; i < spellcheck.size(); i++) {
+			if(spellcheck.get(i).count >= results.length) {
+				resultsText += "<div class='didyoumean'>Meinten Sie <a href='suche?q=" + spellcheck.get(i).suggestion + "'>" + spellcheck.get(i).suggestion + "</a>?</div>";
+			}
+		}
+		
+		resultsText += getFormattedResults(results);
+		
+		return resultsText;
 	}
 	
 	private String writeRecentQueries(Cookie[] recentQueries) throws UnsupportedEncodingException {
@@ -155,6 +181,7 @@ public class AjaxServerTest extends HttpServlet{
 	}
 	
 	private String writeTagcloud(List<TagcloudSuggestion> tags) {
+		Random r = new Random();
 		String tagCloud = "";
 		double maxScore = tags.get(0).score;
 		int maxTagCount = tags.size() > 50? 50 : tags.size();
@@ -165,17 +192,23 @@ public class AjaxServerTest extends HttpServlet{
 		tagCloud +="<aside id='tagCloud'>";
 		
 		for(int i = 0; i < maxTagCount; i++) {
-			double fontSize = Math.pow(tags.get(i).score/maxScore, 2)*26;
-			if(fontSize < 7) fontSize = 7;
+			double fontSize = Math.pow(tags.get(i).score/maxScore, 2)*26; 
+			while(fontSize < 9) fontSize = r.nextDouble()*12;
+			
+			String displayedTagName = tags.get(i).name;
+			if(displayedTagName.length() > 20) {
+				displayedTagName = displayedTagName.substring(0, 18) + "...";
+				if(fontSize > 20) fontSize = 20;
+			}
+
 			tagCloud += "<span style='font-size: " + 
-		 fontSize + "pt;'><a href='suche?q=" + tags.get(i).name + "'>" 
-		+ tags.get(i).name + "</a></span>";
+		 fontSize + "pt; padding-bottom:" + r.nextDouble()*8 + "px;'><a href='suche?q=" + tags.get(i).name + "'>" 
+		+ displayedTagName + "</a></span>";
 		}
 		
 		tagCloud +="</aside>";
 		return tagCloud;
 	}
-	
 	
 	private String writePages(int numResults, String query, int active) {
 		String pagination = "";
@@ -235,12 +268,11 @@ public class AjaxServerTest extends HttpServlet{
 
 		response.setContentType("application/json");
 		
-		
         PrintWriter out = response.getWriter();
 		
         String query = request.getParameter("query");
         
-        SolrJConnection connect = new SolrJConnection();
+        if(connect == null) connect = new SolrJConnection();
 		String[] suggestions = connect.getSuggestions(query);
 		
 		String resultString = "[";
@@ -249,7 +281,6 @@ public class AjaxServerTest extends HttpServlet{
 			if(i != suggestions.length-1) resultString += ",";
 		}
 		resultString += "]";
-		
 		out.println("{");
 		out.println("\"suggestions\":"+resultString);
 		out.println("}");
@@ -264,6 +295,7 @@ public class AjaxServerTest extends HttpServlet{
                 .replaceAll("\\%28", "(")
                 .replaceAll("\\%29", ")")
                 .replaceAll("\\%7E", "~"));
+		searchCookie.setPath("/");
 		searchCookie.setMaxAge(24*60*60*9*30); // I.e. 1,5 semesters - should be more than enough.
 	
 		response.addCookie(searchCookie);
@@ -280,5 +312,31 @@ public class AjaxServerTest extends HttpServlet{
 		  return new String(encoded, encoding);
 	}
 	
-	
+	private void writeNoResultsPage(String htmlPage, PrintWriter out) {
+		// Write Everything up to (including) filters
+		int index = htmlPage.indexOf("<!-- BREAKPOINT: FILTERS -->");
+		int nextIndex = htmlPage.indexOf("<!-- BREAKPOINT: RESULTS -->");
+		out.write(htmlPage.substring(0, index));
+		out.write(writeFilters(0));
+						
+		// Write Everything up to (including) results
+		out.write(htmlPage.substring(index, nextIndex));
+		
+		String help ="<div class='noresults'>"
+				+ "<h3>Ihre Suche hat keine Treffer erzielt.</h3>"
+				+ "<p>Häufig gesuchte Seiten sind:"
+				+ "<ul>"
+				+ "<li><a href='https://elearning.uni-regensburg.de/'>GRIPS (E-Learning)</a></li>"
+				+ "<li><a href='https://netstorage.uni-regensburg.de/'>Das K-Laufwerk</a></li>"
+				+ "<li><a href='https://lsf.uni-regensburg.de/qisserver/rds?state=user&type=0'>LSF (Vorlesungsverzeichnis)</a></li>"
+				+ "<li><a href='https://www-flexnow.uni-regensburg.de/Flexnow/DiensteFrames.htm'>FlexNow (Prüfungsverwaltungssystem)</a></li>"
+				+ "<li><a href='http://www.uni-regensburg.de/studium/studentenkanzlei/'>Studentenkanzlei (bei Fragen zur Bewerbung)</a></li>"
+				+ "</ul></p>"
+				+"<p>Bei Problemen oder Unklarheiten finden Sie <a href='http://www.ur.de/kontakt/index.html'>hier</a> die Büroräume und Mailaddressen von Ansprechpartnern der Universität.</p>"
+				+"<p>Bei technischen Problem, wenden Sie sich bitte an den <a href='http://www.uni-regensburg.de/rechenzentrum/support/infostand/'>Infostand des Rechenzentrums</a>.</p>"
+				+ "</div>"; 
+		out.write(help);
+		
+		out.write(htmlPage.substring(nextIndex));
+	}
 }

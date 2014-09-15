@@ -1027,19 +1027,13 @@
        <!-- Query settings -->
        <str name="defType">edismax</str>
        <str name="qf">
-          content^0.5 title^30.0 url^5.0
+          content^3.0 content_loose^0.5 title^31.0 url^21.0 important^16.0
        </str>
        <str name="df">content</str>
-       <str name="mm">100%</str>
+       <str name="mm">2&lt;-50%</str>
        <str name="q.alt">*:*</str>
        <str name="rows">10</str>
        <str name="fl">*,score</str>
-
-       <str name="mlt.qf">
-          content^0.5 title^30.0 url^5.0
-       </str>
-       <str name="mlt.fl">content,title,url</str>
-       <int name="mlt.count">3</int>
 
        <!-- Faceting defaults -->
 
@@ -1062,12 +1056,12 @@
        <str name="spellcheck">on</str>
        <str name="spellcheck.extendedResults">false</str>       
        <str name="spellcheck.count">5</str>
-       <str name="spellcheck.alternativeTermCount">2</str>
-       <str name="spellcheck.maxResultsForSuggest">5</str>       
+       <str name="spellcheck.alternativeTermCount">4</str>
+       <str name="spellcheck.maxResultsForSuggest">7</str>       
        <str name="spellcheck.collate">true</str>
        <str name="spellcheck.collateExtendedResults">true</str>  
-       <str name="spellcheck.maxCollationTries">5</str>
-       <str name="spellcheck.maxCollations">3</str>           
+       <str name="spellcheck.maxCollationTries">15</str>
+       <str name="spellcheck.maxCollations">5</str>      
 
        <str name="facet">on</str>
        <str name="facet.field">content</str>
@@ -1359,7 +1353,7 @@
       <int name="maxInspections">5</int>
       <int name="minQueryLength">4</int>
      <float name="maxQueryFrequency">0.01</float>
-    	<float name="thresholdTokenFrequency">.01</float>
+      <float name="thresholdTokenFrequency">.01</float>
 
     </lst>
     
@@ -1417,6 +1411,8 @@
         <str name="accuracy">0.7</str>
         <!-- Require terms to occur in 1/100th of 1% of documents in order to be included in the dictionary -->
         <float name="thresholdTokenFrequency">.0001</float>
+        <str name="buildOnCommit">true</str>
+
       </lst>
       <!-- a spellchecker that can break or combine words. (Solr 4.0 see SOLR-2993) -->
       <lst name="spellchecker">
@@ -1426,10 +1422,12 @@
         <str name="combineWords">true</str>
         <str name="breakWords">true</str>
         <int name="maxChanges">3</int>
+        <str name="buildOnCommit">true</str>
+
       </lst>
 
       <!-- This field type's analyzer is used by the QueryConverter to tokenize the value for "q" parameter -->
-      <str name="queryAnalyzerFieldType">textSpell</str>
+      <str name="queryAnalyzerFieldType">content</str>
     </searchComponent>
     <!--
         The SpellingQueryConverter to convert raw (CommonParams.Q) queries into tokens.  Uses a simple regular expression
@@ -1554,7 +1552,7 @@
   </requestHandler>
 
   <searchComponent name="suggest" class="solr.SuggestComponent">
-  	<lst name="suggester">
+    <lst name="suggester">
       <str name="name">mySuggester</str>
       <str name="lookupImpl">FuzzyLookupFactory</str>      <!-- org.apache.solr.spelling.suggest.fst -->
       <str name="dictionaryImpl">DocumentDictionaryFactory</str>     <!-- org.apache.solr.spelling.suggest.HighFrequencyDictionaryFactory --> 
@@ -1569,11 +1567,10 @@
       <str name="echoParams">explicit</str>
       <str name="defType">edismax</str>
       <str name="rows">10</str>
-      <str name="fl">title_s,url_s,content_s</str>
-      <str name="qf">title_suggest^30 title_suggest_ngram^50.0 url_suggest^5 url_suggest_ngram^5.0 content_suggest^2 content_suggest_ngram^2.0</str>
-      <str name="pf">title_suggest_edge^50.0 content_suggest_edge^25.0</str>
+      <str name="fl">title,url,content</str>
+      <str name="qf">title^30.0 url^5.0 content^2.0</str>
       <str name="group">true</str>
-      <str name="group.field">title_s</str>
+      <str name="group.field">title</str>
     </lst>
   </requestHandler>
   <!-- Term Vector Component
@@ -1850,13 +1847,14 @@
     </highlighting>
   </searchComponent>
 
-      <searchComponent name="suggest_phrase" class="solr.SpellCheckComponent">
+      <searchComponent name="suggest_phrase_biword" class="solr.SpellCheckComponent">
         <lst name="spellchecker">
             <str name="name">suggest_phrase_biword</str>
             <str name="classname">org.apache.solr.spelling.suggest.Suggester</str>
             <str name="lookupImpl">org.apache.solr.spelling.suggest.jaspell.JaspellLookupFactory</str>
             <str name="field">suggest_phrase_biword</str>
             <str name="buildOnCommit">true</str>
+            <str name="spellcheckIndexDir">C:\spellchecker</str>
             <float name="thresholdTokenFrequency">.001</float>      
             <float name="threshold">0.001</float>
         </lst>
@@ -1870,7 +1868,7 @@
             <str name="spellcheck.collate">false</str>
         </lst>
         <arr name="components">
-            <str>suggest_phrase</str>
+            <str>suggest_phrase_biword</str>
         </arr>
 </requestHandler>
 

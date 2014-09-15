@@ -138,6 +138,7 @@ haben          |  have
 hat            |  has
 hatte          |  had
 hatten         |  had
+hauptinhalt
 hier           |  here
 hin            |  there
 hinter         |  behind
@@ -241,6 +242,7 @@ soll           |  shall
 sollte         |  should
 sondern        |  but
 sonst          |  else
+springen
 über           |  over
 um             |  about, around
 und            |  and

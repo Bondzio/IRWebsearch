@@ -38,15 +38,31 @@
         <fieldType name="date" class="solr.TrieDateField" precisionStep="0"
             omitNorms="true" positionIncrementGap="0"/>
 
-        <fieldType name="text" class="solr.TextField"
-            positionIncrementGap="100">
+        <fieldType name="title" class="solr.TextField" positionIncrementGap="100">
             <analyzer>
                 <tokenizer class="solr.WhitespaceTokenizerFactory"/>
                 <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.ClassicFilterFactory"/>
             </analyzer>
         </fieldType>
-        <fieldType name="url" class="solr.TextField"
-            positionIncrementGap="100">
+        <fieldType name="text" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.RemoveDuplicatesTokenFilterFactory"/>
+            </analyzer>
+        </fieldType>
+
+        <fieldType name="text_loose" class="solr.TextField" positionIncrementGap="100">
+            <analyzer>
+                <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+                <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_de.txt" enablePositionIncrements="true"/>
+                <filter class="solr.DictionaryCompoundWordTokenFilterFactory" dictionary="lang/common-german-words.txt" minWordSize="10" minSubwordSize="6" maxSubwordSize="20" onlyLongestMatch="true"/>
+            </analyzer>
+        </fieldType>
+
+        <fieldType name="url" class="solr.TextField"  positionIncrementGap="100">
             <analyzer>
                 <tokenizer class="solr.StandardTokenizerFactory"/>
                 <filter class="solr.LowerCaseFilterFactory"/>
@@ -59,22 +75,18 @@
             <analyzer>
                 <tokenizer class="solr.StandardTokenizerFactory"/>
                 <filter class="solr.LowerCaseFilterFactory" />
-                <filter class="solr.WordDelimiterFilterFactory"
-                    generateWordParts="1" generateNumberParts="1"
-                    catenateWords="1" catenateNumbers="1" catenateAll="0"
-                    splitOnCaseChange="1"/>     
                 <filter class="solr.StopFilterFactory" words="mystopwords.txt" ignoreCase="true"/>
-
             </analyzer>
         </fieldType>
-        
+
         <fieldType name="suggest_phrase_biword" class="solr.TextField" positionIncrementGap="100">
             <analyzer>
                 <tokenizer class="solr.StandardTokenizerFactory"/>
                 <filter class="solr.LowerCaseFilterFactory" />
-                <filter class="solr.ShingleFilterFactory" maxShingleSize="2" outputUnigrams="true"/>
+                <filter class="solr.ShingleFilterFactory" maxShingleSize="3" outputUnigrams="true"/>
             </analyzer>
         </fieldType>
+
     </types>
     <fields>
         <field name="id" type="string" stored="true" indexed="true"/>
@@ -88,55 +100,44 @@
         <!-- fields for index-basic plugin -->
         <field name="host" type="url" stored="true" indexed="true"/>
         <field name="site" type="string" stored="true" indexed="true"/>
-        <field name="url" type="url" stored="true" indexed="true"
-            required="true"/>
+        <field name="url" type="url" stored="true" indexed="true" required="true"/>
         <field name="content" type="text" stored="true" indexed="true"/>
-        <field name="title" type="text" stored="true" indexed="true"/>
+        <field name="important" type="text" stored="true" indexed="true"/>
+        <field name="title" type="title" stored="true" indexed="true"/>
         <field name="cache" type="string" stored="true" indexed="false"/>
         <field name="tstamp" type="date" stored="true" indexed="false"/>
-
+        <field name="content_loose" type="text_loose" stored="true" indexed="true"/>
+        
         <!-- fields for index-anchor plugin -->
         <field name="anchor" type="string" stored="true" indexed="true"
             multiValued="true"/>
 
         <!-- fields for index-more plugin -->
-        <field name="type" type="string" stored="true" indexed="true"
-            multiValued="true"/>
-        <field name="contentLength" type="long" stored="true"
-            indexed="false"/>
-        <field name="lastModified" type="date" stored="true"
-            indexed="false"/>
+        <field name="type" type="string" stored="true" indexed="true" multiValued="true"/>
+        <field name="contentLength" type="long" stored="true" indexed="false"/>
+        <field name="lastModified" type="date" stored="true" indexed="false"/>
         <field name="date" type="date" stored="true" indexed="true"/>
 
         <!-- fields for languageidentifier plugin -->
         <field name="lang" type="string" stored="true" indexed="true"/>
 
         <!-- fields for subcollection plugin -->
-        <field name="subcollection" type="string" stored="true"
-            indexed="true" multiValued="true"/>
+        <field name="subcollection" type="string" stored="true" indexed="true" multiValued="true"/>
 
         <!-- fields for feed plugin (tag is also used by microformats-reltag)-->
         <field name="author" type="string" stored="true" indexed="true"/>
         <field name="tag" type="string" stored="true" indexed="true" multiValued="true"/>
         <field name="feed" type="string" stored="true" indexed="true"/>
-        <field name="publishedDate" type="date" stored="true"
-            indexed="true"/>
-        <field name="updatedDate" type="date" stored="true"
-            indexed="true"/>
+        <field name="publishedDate" type="date" stored="true" indexed="true"/>
+        <field name="updatedDate" type="date" stored="true" indexed="true"/>
 
             <!-- PinkiePie -->
-            <field name="suggest_phrase" type="suggest_phrase" indexed="true" stored="false" multiValued="true" />
-            <field name="suggest_phrase_biword" type="suggest_phrase_biword" indexed="true" stored="false" multiValued="true" />
+            <field name="suggest_phrase" type="suggest_phrase" indexed="true" stored="true" multiValued="false" />
+            <field name="suggest_phrase_biword" type="suggest_phrase_biword" indexed="true" stored="true" multiValued="false" />
 
-            <field name="suggest_phrase_alltogether" type="string" indexed="true" stored="true" multiValued="true" />
-
-            <copyField source="title" dest="suggest_phrase" maxChars="30000" />
-            <copyField source="title" dest="suggest_phrase_biword" maxChars="30000" />
             <copyField source="content" dest="suggest_phrase" maxChars="30000" />
             <copyField source="content" dest="suggest_phrase_biword" maxChars="30000" />
-            <copyField source="suggest_phrase" dest="suggest_phrase_alltogether" />
-            <copyField source="suggest_phrase_biword" dest="suggest_phrase_alltogether" />
-
+            <copyField source="content" dest="content_loose" maxChars="30000" />
         <!-- fields for creativecommons plugin -->
         <field name="cc" type="string" stored="true" indexed="true"
             multiValued="true"/>

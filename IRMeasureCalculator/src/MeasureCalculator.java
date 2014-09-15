@@ -1,4 +1,6 @@
+import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,21 +26,110 @@ public class MeasureCalculator {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		for(int z = 1; z < 12; z++) {
-			server = new HttpSolrServer("http://localhost:8983/solr/weightChange");
-			//System.out.println("The average precision @ 10 for the core " + z + "is: " + (calculateAveragePrecisionAt10(z, relevanceData)));
-			//System.out.println("The average precision @ 1 for the core " + z + "is: " + (calculateAveragePrecisionAt1(z, relevanceData)));
-			//System.out.println("The mean average precision for the core " + z + "is: " + (calculateMeanAveragePrecision(z, relevanceData)));
-			//System.out.println("The mean reciprocal rank for the core " + z + "is: " + (calculateMeanReciprocalRank(z, relevanceData)));
-			System.out.println("The 11pt data for the core " + z + "is: " + csvify(calculate11ptPrecisionRecall(z, relevanceData)));
+		
+		File file = new File("C:/users/Jonathan/Desktop/Log/bestCoreTest.txt");
+
+		FileWriter logger = new FileWriter(file);	
+		
+		
+		for(int i = 0; i < 1; i ++) {		
+			server = new HttpSolrServer("http://localhost:8983/solr/bestCore");
+
+			ModifiableSolrParams params = new ModifiableSolrParams();
+			params.set("qt", "/keks");
+			//params.set("qf", "content"+17+"^"+ contentBoost +".0 title"+i+"^"+ titleBoost +".0 url^"+ urlBoost +".0 important" + i + "^" + importantBoost + ".0");
+			params.set("qf", "content^0.0 content_loose^16.0 title^1.0 url^16.0 important^1.0");
+			
+			
+			double averagePrecisionAtTen = 0;
+			double averagePrecisionAtOne = 0;
+			double averageMRR = 0;
+			double averageMAP = 0;
+			double[] elevenPt = new double[] {0,0,0,0,0, 0,0,0,0,0, 0};
+			int queryCounterPAt10 = 0;
+			int queryCounterPAt1 = 0;
+			int queryCounterMRR = 0;
+			int queryCounterMAP = 0;
+			int queryCounter11pt = 0;
+					
+			for(int j = 0; j < relevanceData.get(0).size(); j++) {
+				if(j == 26) continue;
+				ArrayList<String> currentQueries = relevanceData.get(0).get(j);
+				ArrayList<String> currentRelevantDocs = relevanceData.get(1).get(j);
+				for(int k = 0; k < currentQueries.size(); k++) {
+					params.set("q", currentQueries.get(k));
+						
+					try {
+						QueryResponse response = server.query(params);
+						SolrDocumentList queryResults = response.getResults();
+										
+						double precisionAt10 = getPrecisionAt10(queryResults, currentRelevantDocs);
+						double precisionAt1 = getPrecisionAt1(queryResults, currentRelevantDocs);
+						double map = getMeanAveragePrecision(queryResults, currentRelevantDocs);
+						double mrr = getMeanReciprocalRank(queryResults, currentRelevantDocs);
+						double[] elevenPointData = get11ptPrecisionRecall(queryResults, currentRelevantDocs);
+						logger.write("core"+i+",");
+						if(precisionAt10 != -1000.0) {
+							averagePrecisionAtTen += precisionAt10;
+							queryCounterPAt10++;
+							logger.write(precisionAt10+",");
+						} else {
+							logger.write("NA,");
+						}
+						if(precisionAt1 != -1000.0) {
+							averagePrecisionAtOne += precisionAt1;
+							queryCounterPAt1++;
+							logger.write(precisionAt1+",");
+						} else {
+							logger.write("NA,");
+						}
+						if(map != -1000.0) {
+							averageMAP += map;
+							queryCounterMAP++;
+							logger.write(map+",");
+						} else {
+							logger.write("NA,");
+						}
+						if(mrr != -1000.0) {
+							averageMRR += mrr;
+							queryCounterMRR++;
+							logger.write(""+mrr);
+						} else {
+							logger.write("NA");
+						}
+						if(elevenPointData != null) {
+							for(int z = 0; z < 11; z++) {
+								elevenPt[z] += elevenPointData[z];
+							}
+						queryCounter11pt++;
+						}
+						logger.write("\n");
+										
+					} catch(Exception e) {
+						e.printStackTrace();
+					}
+				}
+			}
+							
+			for(int bla = 0; bla < 11; bla++) {
+				elevenPt[bla] /= queryCounter11pt;
+			}
+			
+			System.out.println("\tP@1: " + Math.round(averagePrecisionAtTen/queryCounterPAt10 * 100.0) / 100.0);
+			System.out.println("\tP@1: " + Math.round(averagePrecisionAtOne/queryCounterPAt1 * 100.0) / 100.0);
+			System.out.println("\tMAP: " + Math.round(averageMAP / queryCounterMAP * 100.0) / 100.0);
+			System.out.println("\tMRR: " + Math.round(averageMRR / queryCounterMRR * 100.0) / 100.0);
+			logger.write("\11pt: " + csvify(elevenPt));
+			System.out.println("\n");
+							
 		}
-		System.out.println(csvify(staticCounters));
+		logger.write("\n");
+		logger.close();
+		
+		System.out.println("Done");
 	}
 	
-	public static double calculateAveragePrecisionAt10(int index, ArrayList<ArrayList<ArrayList<String>>> relevanceData) {
-		ModifiableSolrParams params = new ModifiableSolrParams();
-		params.set("qt", "/keks"+index);
-		
+	public static double calculateAveragePrecisionAt10(int index, ArrayList<ArrayList<ArrayList<String>>> relevanceData, ModifiableSolrParams params) {
 		double averagePrecisionAtTen = 0;
 		int queryCounter = 0;
 		
@@ -68,10 +159,7 @@ public class MeasureCalculator {
 		return averagePrecisionAtTen/queryCounter;
 	}
 
-	public static double calculateAveragePrecisionAt1(int index, ArrayList<ArrayList<ArrayList<String>>> relevanceData) {
-		ModifiableSolrParams params = new ModifiableSolrParams();
-		params.set("qt", "/keks"+index);
-		
+	public static double calculateAveragePrecisionAt1(int index, ArrayList<ArrayList<ArrayList<String>>> relevanceData, ModifiableSolrParams params) {
 		double averagePrecisionAt1 = 0;
 		int queryCounter = 0;
 		
@@ -106,7 +194,7 @@ public class MeasureCalculator {
 		int max = queryResults.size() > 10? 10 : queryResults.size();
 
 		if(relevantDocs.size() == 0) return -1000.0;
-		if(queryResults.size() == 0) return -1000.0;
+		if(queryResults.size() == 0) return 0;
 		
 		if(max == 0) return 0;
 		int hits = 0;
@@ -125,7 +213,7 @@ public class MeasureCalculator {
 	
 	public static double getPrecisionAt1(SolrDocumentList queryResults, ArrayList<String> relevantDocs) {
 		if(queryResults.size() == 0) return -1000.0;
-		if(relevantDocs.size() == 0) return -1000.0;
+		if(relevantDocs.size() == 0) return 0;
 		for(int j = 0; j < relevantDocs.size(); j++) {
 			if(queryResults.get(0).getFieldValue("id").equals(relevantDocs.get(j))) {
 				return 1.0;
@@ -134,9 +222,7 @@ public class MeasureCalculator {
 		return 0.0;
 	}
 	
-	public static double calculateMeanAveragePrecision(int index, ArrayList<ArrayList<ArrayList<String>>> relevanceData) {
-		ModifiableSolrParams params = new ModifiableSolrParams();
-		params.set("qt", "/keks"+index);
+	public static double calculateMeanAveragePrecision(int index, ArrayList<ArrayList<ArrayList<String>>> relevanceData, ModifiableSolrParams params) {
 		params.set("rows", 150);
 		
 		double averageMAP = 0;
@@ -171,7 +257,7 @@ public class MeasureCalculator {
 	
 	public static double getMeanAveragePrecision(SolrDocumentList queryResults, ArrayList<String> relevantDocs) {
 		if(relevantDocs.size() == 0) return -1000.0;
-		if(queryResults.size() == 0) return -1000.0;
+		if(queryResults.size() == 0) return 0;
 		int relevantDocCounter = 0;
 		double precision = 0;					
 		for(int i = 0; i < queryResults.size(); i++) {
@@ -186,12 +272,10 @@ public class MeasureCalculator {
 			if(relevantDocCounter == relevantDocs.size()) return precision/relevantDocCounter;
 		}
 		if(relevantDocCounter == 0) return 0.0;
-		return precision/relevantDocCounter;
+		return precision/relevantDocs.size();
 	}
 	
-	public static double calculateMeanReciprocalRank(int index, ArrayList<ArrayList<ArrayList<String>>> relevanceData) {
-		ModifiableSolrParams params = new ModifiableSolrParams();
-		params.set("qt", "/keks"+index);
+	public static double calculateMeanReciprocalRank(int index, ArrayList<ArrayList<ArrayList<String>>> relevanceData, ModifiableSolrParams params) {
 		params.set("rows", 150);
 		
 		double averageMRR = 0;
@@ -227,7 +311,7 @@ public class MeasureCalculator {
 	
 	public static double getMeanReciprocalRank(SolrDocumentList queryResults, ArrayList<String> relevantDocs) {
 		if(relevantDocs.size() == 0) return -1000.0;
-		if(queryResults.size() == 0) return -1000.0;
+		if(queryResults.size() == 0) return 0;
 		for(int i = 0; i < queryResults.size(); i++) {
 			for(int j = 0; j < relevantDocs.size(); j++) {
 				if(queryResults.get(i).getFieldValue("id").equals(relevantDocs.get(j))) {
@@ -238,10 +322,8 @@ public class MeasureCalculator {
 		return 0.0;
 	}
 	
-	public static double[] calculate11ptPrecisionRecall(int index, ArrayList<ArrayList<ArrayList<String>>> relevanceData) throws Exception{
+	public static double[] calculate11ptPrecisionRecall(int index, ArrayList<ArrayList<ArrayList<String>>> relevanceData, ModifiableSolrParams params) throws Exception{
 		double[] data = new double[11];
-		ModifiableSolrParams params = new ModifiableSolrParams();
-		params.set("qt", "/keks"+index);
 		params.set("rows", 150);
 		
 		int counter = 0;
@@ -289,8 +371,8 @@ public class MeasureCalculator {
 				}
 			}
 		}
-		for(int i = 1; i < data.length; i++) {
-			if(data[i] == 0) data[i] = data[i-1];
+		for(int i = 9; i >= 0; i--) {
+			if(data[i] <= data[i+1]) data[i] = data[i+1];
 		}
 		
 		return data;

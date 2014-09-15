@@ -18,7 +18,10 @@ public class TagcloudSuggestion implements Comparable<TagcloudSuggestion>{
 
 	@Override
 	public int compareTo(TagcloudSuggestion another) {
-		if(sortRandomly) return new Random().nextBoolean()? 1 : -1;
+		if(sortRandomly) {
+			if(score == another.score) return 0;
+			return new Random().nextBoolean()? 1 : -1;
+		}
 		else return -Double.compare(score, another.score);
 	}
 	

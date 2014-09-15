@@ -9,6 +9,8 @@ function getQuery(){
     for(var i  = 0; i < s.length; i++) {
         var parts = s[i].split('=');
         if(parts[0] == "q") {
+        	parts[1] = parts[1].split("%2B").join(" ");
+        	parts[1] = parts[1].split("+").join(" ");
         	return decodeURIComponent(unescape(parts[1]));
         }
     }
