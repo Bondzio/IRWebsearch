@@ -28,7 +28,7 @@ public class AjaxServerTest extends HttpServlet{
 	
 	private SolrJConnection connect;
 	
-	private boolean tagCloud = false;
+	private boolean tagCloud = true; 
 	
 	public AjaxServerTest() {
 		super();

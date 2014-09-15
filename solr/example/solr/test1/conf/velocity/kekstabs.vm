@@ -1,7 +1,0 @@
-#**
- *  Provides navigation/access to Advanced search options
- *  Usually displayed near the top of the page
- *#
-
-#set($queryOpts = $params.get("queryOpts"))
-

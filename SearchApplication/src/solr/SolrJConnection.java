@@ -189,6 +189,7 @@ public class SolrJConnection {
 			if(!totalFacets.containsKey(entry.getKey())) continue;
 			if(query.toLowerCase().contains(entry.getKey())) continue;
 			if(STOPWORDS.contains(entry.getKey().toLowerCase())) continue;
+			if(entry.getValue() < 4 || entry.getValue() > 800) continue;
 			double value = Math.pow(entry.getValue(),1.5);
 			double totalWeight = totalFacets.get(entry.getKey());
 			
