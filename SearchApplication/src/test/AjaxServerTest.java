@@ -58,6 +58,10 @@ public class AjaxServerTest extends HttpServlet{
 		String page = request.getParameter("page");
 		String query = new String(request.getParameter("q").getBytes(), "ISO-8859-1");
 
+		if(query == null || query.length() == 0) {
+			writeNoResultsPage(htmlPage, out);
+		}
+		
 		addCookie(response, request, query);
 		
 		ResultsObject obj;

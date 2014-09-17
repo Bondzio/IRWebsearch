@@ -161,6 +161,7 @@ public class SolrJConnection {
 	
 	private ArrayList<SpellcheckSuggestion> getSpellcheckingResults(QueryResponse response) {
 		ArrayList<SpellcheckSuggestion> spellcheckSuggestions = new ArrayList<SpellcheckSuggestion>();
+		if(response.getSpellCheckResponse() == null) return spellcheckSuggestions;
 		List<Collation> spellcheckResults = response.getSpellCheckResponse().getCollatedResults();
 		
 		if(spellcheckResults == null) {
