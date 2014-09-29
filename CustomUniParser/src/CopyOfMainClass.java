@@ -47,38 +47,92 @@ public class CopyOfMainClass {
 
 	};
 	
+
+	
 	public static void main(String[] args) throws IOException {
 		//for(int i = 0; i < segments.length; i++) {
-		int totalDocCounter = 0;
-		boolean stop = false;
-
-        File folder = new File("C:/Users/Jonathan/Desktop/myTestFinal");
-        File newFile = new File("C:/Users/Jonathan/Desktop/myTestFinal/3.xml");
-        FileWriter w = new FileWriter(newFile);
-        w.write("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n<add>\n");
+		for(int i = 0; i < segments.length; i++) {	
+			oldMain(segments[i]);
+		}
+		
+	}
+	
+	private static void oldMain (String segmentNum) throws IOException {
+		Configuration conf = NutchConfiguration.create();
+        Options opts = new Options();
+        GenericOptionsParser parser = new GenericOptionsParser(conf, opts, new String[]{"C:/cygwin64/home/apache-nutch-1.4-bin/runtime/local/bin/crawl44/segments/"+segmentNum});
+        String[] remainingArgs = parser.getRemainingArgs();
+        FileSystem fs = FileSystem.get(conf);
+        String segment = remainingArgs[0];
+        Path file = new Path(segment, Content.DIR_NAME + "/part-00000/data");
+        SequenceFile.Reader reader = new SequenceFile.Reader(fs, file, conf);
+        Text key = new Text();
+        Content content = new Content();
+        
+        
+        File folder = null, newFile = null;
+        FileWriter w = null;
+        
+        // Loop through sequence files
+        int index = 0;
         
         CopyOfMainClass bla = new CopyOfMainClass();
         
         
-		for(int i = 0; i < testURLS.length; i++) {
-			Document doc = Jsoup.parse(new URL(testURLS[i]), 100000);
+        boolean started = false;
+        
+        while (reader.next(key, content)) {
+        
+       
+       /* 	boolean isInURLs = false;
+        	for(String s : testURLS) {
+        		
+        		if(s.equals(content.getBaseUrl())) {
+        			isInURLs = true;
+        			break;
+        		}
+        	}
+        	if(!isInURLs) continue; */
+
+        	
+        	if(index == 0) {
+        		if(started) {
+        			w.write("\n</add>");
+        			w.close();
+        		}
+	            folder = new File("C:/Users/Jonathan/Desktop/IRIndex");
+	            if(!folder.exists()) folder.mkdir();
+	            newFile = new File("C:/Users/Jonathan/Desktop/IRIndex/index"+folder.listFiles().length+".xml");
+	            w = new FileWriter(newFile);
+	            w.write("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n<add>\n");
+	            started=true;
+
+	            
+	        } 
+        	index++;
+        	if(index == 100) index = 0;
+            try {
+            	// TODO save URLs, check if already indexed, check if already indexed for index.html
+            	Document doc = Jsoup.parse(new String(content.getContent(), "utf-8"));
             //   Document doc = Jsoup.parse(new URL("http://www.ur.de/index.html"), 1000);
-			String s = bla.parseDocument(doc, testURLS[i]);			
+            	String s = bla.parseDocument(doc, content.getBaseUrl(), content.getMetadata().get("nutch.crawl.score"));
             	if(!s.equals("")) {
             		w.write(s);
-            		totalDocCounter++;
             	}
-			
+            } catch (Exception e) {
+            }
+        } 
+        if(w != null) {
+			w.write("\n</add>");
+			w.close();
+	    }
+		if(reader != null) {
+			reader.close();
 		}
-
-		w.write("\n</add>");
-		w.close();
-		
-		System.out.println("Done!");
 	}
 	
-	private String parseDocument(Document doc, String url) {
-	//	if(!url.endsWith("/") && !url.endsWith("html") && !url.endsWith("htm") && !url.endsWith("php") && !url.endsWith("jsp") && !url.endsWith("de") && !url.endsWith("en")) return ""; //&& !url.endsWith(".pdf")) return "";
+	private String parseDocument(Document doc, String url, String boost) {
+		if(!url.endsWith("/") && !url.endsWith("html") && !url.endsWith("htm") && !url.endsWith("php") && !url.endsWith("jsp") && !url.endsWith("de") && !url.endsWith("en")) return ""; //&& !url.endsWith(".pdf")) return "";
 		int cms = findOutWhichCMS(doc, url);
 		String title = doc.select("title").text();
 
@@ -100,11 +154,15 @@ public class CopyOfMainClass {
 		title = title.replaceAll("&", "&amp;");
 		title = title.replaceAll("<", "&lt;");
 		title = title.replaceAll(">", "&gt;");
+
+		importantParts = importantParts.replaceAll("&", "&amp;");
+		importantParts = importantParts.replaceAll("<", "&lt;");
+		importantParts = importantParts.replaceAll(">", "&gt;");
 		// remove control characters: 
 		contents = contents.replaceAll("[\u0000-\u001f]", "");
 		
 		
-		return this.saveToDoc(title, url, contents, importantParts)+"\n";
+		return this.saveToDoc(title, url, contents, importantParts, boost)+"\n";
 	}
 	
 	private int findOutWhichCMS(Document doc, String url) {
@@ -207,14 +265,15 @@ public class CopyOfMainClass {
 	}
 	
 	
-	private String saveToDoc(String title, String url, String content, String importantParts) { //, String important) {
+	private String saveToDoc(String title, String url, String content, String importantParts, String boost) { //, String important) {
 		String xmlDoc = "<doc>\n";
 
 		xmlDoc +="<field name=\"id\">"+url+"</field>\n";
 		xmlDoc +="<field name=\"title\">"+title+"</field>\n";
 		xmlDoc +="<field name=\"url\">"+url+"</field>\n";
 		xmlDoc +="<field name=\"content\">"+content+"</field>\n";
-		xmlDoc+="<field name=\"important\">"+content+"</field>\n";
+		xmlDoc+="<field name=\"important\">"+importantParts+"</field>\n";
+		xmlDoc+="<field name=\"boost\">"+boost+"</field>\n";
 		return xmlDoc +="</doc>";
 	}
 	

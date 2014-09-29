@@ -8,7 +8,7 @@ var previewDisplayed = false;
 var previewPage;
 
 function initPagePreview() {
-	var turnPreviewPageOff = true;
+	var turnPreviewPageOff = false;
 
 	var mq = window.matchMedia("(min-width: 1100px)");
 

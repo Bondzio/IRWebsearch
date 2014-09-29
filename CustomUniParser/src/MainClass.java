@@ -76,6 +76,8 @@ public class MainClass {
         boolean started = false;
         
         while (reader.next(key, content)) {
+        
+       
         	boolean isInURLs = false;
         	for(String s : testURLS) {
         		
@@ -92,27 +94,28 @@ public class MainClass {
         			w.write("\n</add>");
         			w.close();
         		}
-	            folder = new File("C:/Users/Jonathan/Desktop/testCollection");
-	            newFile = new File("C:/Users/Jonathan/Desktop/testCollection/index"+folder.listFiles().length+".xml");
+	            folder = new File("C:/Users/Jonathan/Desktop/IRIndex");
+	            if(!folder.exists()) folder.mkdir();
+	            newFile = new File("C:/Users/Jonathan/Desktop/IRIndex/index"+folder.listFiles().length+".xml");
 	            w = new FileWriter(newFile);
 	            w.write("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n<add>\n");
 	            started=true;
 
 	            
-	        }
+	        } 
         	index++;
         	if(index == 100) index = 0;
             try {
             	// TODO save URLs, check if already indexed, check if already indexed for index.html
             	Document doc = Jsoup.parse(new String(content.getContent(), "utf-8"));
             //   Document doc = Jsoup.parse(new URL("http://www.ur.de/index.html"), 1000);
-            	String s = bla.parseDocument(doc, content.getBaseUrl());
+            	String s = bla.parseDocument(doc, content.getBaseUrl(), content.getMetadata().get("nutch.crawl.score"));
             	if(!s.equals("")) {
             		w.write(s);
             	}
             } catch (Exception e) {
             }
-        }
+        } 
         if(w != null) {
 			w.write("\n</add>");
 			w.close();
@@ -122,8 +125,9 @@ public class MainClass {
 		}
 	}
 	
+
 	// TODO PDFs are still excluded!!
-	private String parseDocument(Document doc, String url) {
+	private String parseDocument(Document doc, String url, String boost) {
 		//if(!url.endsWith("/") && !url.endsWith("html") && !url.endsWith("htm") && !url.endsWith("php") && !url.endsWith("jsp") && !url.endsWith(".de")) return ""; //&& !url.endsWith(".pdf")) return "";
 		int cms = findOutWhichCMS(doc, url);
 		String title = doc.select("title").text();
@@ -147,7 +151,7 @@ public class MainClass {
 		contents = contents.replaceAll("[\u0000-\u001f]", "");
 		
 		
-		return this.saveToDoc(title, url, contents)+"\n";
+		return this.saveToDoc(title, url, contents, boost)+"\n";
 	}
 	
 	private int findOutWhichCMS(Document doc, String url) {
@@ -235,13 +239,14 @@ public class MainClass {
 		return htmlString + "";
 	}
 	
-	private String saveToDoc(String title, String url, String content) { //, String important) {
+	private String saveToDoc(String title, String url, String content, String boost) { //, String important) {
 		String xmlDoc = "<doc>\n";
 
 		xmlDoc +="<field name=\"id\">"+url+"</field>\n";
 		xmlDoc +="<field name=\"title\">"+title+"</field>\n";
 		xmlDoc +="<field name=\"url\">"+url+"</field>\n";
 		xmlDoc +="<field name=\"content\">"+content+"</field>\n";
+		xmlDoc +="<field name=\"boost\">"+boost+"</field>\n";
 		
 		return xmlDoc +="</doc>";
 	}

@@ -172,9 +172,8 @@ public class AjaxServerTest extends HttpServlet{
 		
 		int displayedSearches = recentSearches.size() > 10? 10 : recentSearches.size();
 		
-		String s = 	"<h3>Zuletzt gesucht:</h3>";
-		s += "<aside id='suggestions'>"
-				+"<ul>";
+		String s = 	"<aside id='suggestions'>\n<h3>Zuletzt gesucht:</h3>";
+		s += "<ul>";
 			for(int i = 0; i < displayedSearches; i++) {
 				s += "<li><a href='suche?q=" + recentSearches.get(i).query + "'>" + recentSearches.get(i).query + "</a></li>";
 			}
@@ -254,9 +253,9 @@ public class AjaxServerTest extends HttpServlet{
 			// so url doesn't need 2 lines
 			queryResults[i][1] = queryResults[i][1].replaceAll("<strong>", "");
 			queryResults[i][1] = queryResults[i][1].replaceAll("</strong>", "");
-			if(queryResults[i][1].length() > 95){
+			if(queryResults[i][1].length() > 80){
 			
-				queryResults[i][1] = queryResults[i][1].substring(0, 90) + "...";
+				queryResults[i][1] = queryResults[i][1].substring(0, 75) + "...";
 			}
 			
 			resultString += "<li><h3 class='result-title'><a href='" + queryResults[i][3] +  "'>" + queryResults[i][0] +

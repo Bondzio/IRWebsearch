@@ -97,14 +97,16 @@ public class SolrJConnection {
 			params.set("facet.limit", 0);
 		}
 		
-		
 		try {
 			QueryResponse response = server.query(params);
 			SolrDocumentList queryResults = response.getResults();
+			SolrDocument firstResult = queryResults.size() > 0? queryResults.get(0) : null;
 			if(query.contains(" ") && queryResults.size() <= 5) {
 				params.set("mm", "0%"); 
-				response = server.query(params);
-				queryResults = response.getResults();
+				response = server.query(params); 
+				queryResults = response.getResults();			
+				if(firstResult != null)
+					queryResults.add(0, firstResult); 
 			}
 			 
 			obj.numResults = (int) queryResults.getNumFound();
@@ -118,25 +120,31 @@ public class SolrJConnection {
 			
 			for(int i = 0; i < queryResults.size(); i++) {
 				SolrDocument result = queryResults.get(i);
-
-				// RETRIEVE TITLE
-				if(highlights.get(result.getFieldValue("id")).containsKey(("title"))) {
-					results[i][0] = highlights.get(result.getFieldValue("id")).get("title").get(0);
-				} else {
+				try {
+					// RETRIEVE TITLE
+					if(highlights.get(result.getFieldValue("id")).containsKey(("title"))) {
+						results[i][0] = highlights.get(result.getFieldValue("id")).get("title").get(0);
+					} else {
+						results[i][0] = (String) result.getFieldValue("title");
+					}
+				} catch (Exception e) { // I honestly have no idea what's going on here.
 					results[i][0] = (String) result.getFieldValue("title");
 				}
 				
 				// GET URL
 				results[i][1] = (String) result.getFieldValue("url");
+				try {
+					// GET CONTENT (or the highlights thereof)
+					if(highlights.get(result.getFieldValue("id")).containsKey(("content"))) {
+						List<String> contentHightlights = highlights.get(result.getFieldValue("id")).get("content");
+						results[i][2] = contentHightlights.get(contentHightlights.size()-1);
+					} else {
+						results[i][2] = (String) result.getFieldValue("content"); 
+					}				
+				} catch (Exception e) { // I honestly have no idea what's going on here.
+					results[i][2] = (String) result.getFieldValue("content");
+				}
 				
-				// GET CONTENT (or the highlights thereof)
-				if(highlights.get(result.getFieldValue("id")).containsKey(("content"))) {
-					List<String> contentHightlights = highlights.get(result.getFieldValue("id")).get("content");
-					results[i][2] = contentHightlights.get(contentHightlights.size()-1);
-					
-				} else {
-					results[i][2] = (String) result.getFieldValue("content"); 
-				}				
 				results[i][3] = (String) result.getFieldValue("url");
 				
 				// oddly enough, this does not always work. I suppose it has to do with the "-" and character encoding problems.
